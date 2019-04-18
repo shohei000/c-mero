@@ -18,9 +18,9 @@ Route::group(['middleware' => 'guest'], function (){
 	Route::post('user/login', 'Auth\LoginController@login');
 
   // twitterログインURL
-  Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');
+  Route::get('auth/twitter', 'AAuth\LoginController@redirectToProvider');
   // twitterコールバックURL
-  Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback');
+  Route::get('auth/twitter/callback', 'Auth\LoginController@handleProviderCallback');
 
   //ユーザー登録
   Route::get('user/sign_up', 'UserController@sign_up')->name('sign_up');
