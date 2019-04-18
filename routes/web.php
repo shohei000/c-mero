@@ -17,6 +17,11 @@ Route::group(['middleware' => 'guest'], function (){
 	Route::get('user/login', 'Auth\LoginController@showLoginForm')->name('login');
 	Route::post('user/login', 'Auth\LoginController@login');
 
+  // twitterログインURL
+  Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');
+  // twitterコールバックURL
+  Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback');
+
   //ユーザー登録
   Route::get('user/sign_up', 'UserController@sign_up')->name('sign_up');
   Route::post('user/sign_up/store', 'UserController@store');
