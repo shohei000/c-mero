@@ -11,7 +11,7 @@
           <div class="form-inner">
 
             <div class="form-item btn-tw btn-wrap">
-              <a href="" class="btn bg-tw btn--form"><span class="icon-tw">twitterで新規登録する</span></a>
+              <a href="/auth/twitter" class="btn bg-tw btn--form"><span class="icon-tw">twitterで新規登録する</span></a>
             </div>
 
           <!--   <div class="form-item form-group{{ $errors->has('name') ? ' has-error' : '' }}">
