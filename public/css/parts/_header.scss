@@ -1,0 +1,41 @@
+@charset "utf-8";
+.header{
+	height: 52px;
+	// background-color: $blue;
+	// box-shadow: 0 3px 6px rgba(0,0,0,.18);
+	border-bottom: 1px solid #e9e9e9;
+	@include SP {
+		height: 40px;
+	}
+}
+.inner-header{
+	position: relative;
+	width: $inner-content;
+  margin: 0 auto;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  @include SP {
+  	width: auto;
+  	padding: 0 10px;
+  }
+}
+.logo{
+	position: relative;
+	display: inline-block;
+	width: 80px;
+	a {display: block;}
+	img {width: 100%;}
+	@include SP {
+		width: 70px;
+	}
+}
+
+.g-nav{
+	a{
+		color: #333;
+		display: inline-block;
+		margin-left: 15px;
+	}
+}

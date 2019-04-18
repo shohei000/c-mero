@@ -1,0 +1,111 @@
+@charset "utf-8";
+.myEvent{
+	@include inner(935px);
+}
+.sortTab{
+	margin-bottom: 30px;
+	margin-left: 1%;
+	li{
+		display: inline-block;
+		margin-right: 20px;
+		a{
+			padding-top: 10px;
+			color: #999;
+			font-weight: bold;
+			&.active{
+				color: $black;
+				border-top: 1px solid $black;
+			}
+		}
+	}
+}
+.eventList{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 40px;
+	> li{
+		position: relative;
+		width: 31.3%;
+    margin: 0 1% 32px 1%;
+    border-radius: 3px;
+    // border: 1px solid #dadada;
+    box-shadow: 0px 1px 4px #d0d0d0;
+    padding: 15px 15px;
+		a{ 
+			display: block;
+			color: $black;
+		}
+		.labelDate{
+			display: block;
+			margin-bottom: 5px;
+		}
+		.eventDelete{
+			position: absolute;
+	    top: 16px;
+	    right: 16px;
+	    background-color: #c3c3c3;
+	    color: #fff;
+	    z-index: 10;
+	    font-size: 12px;
+	    border-radius: 3px;
+	    padding: 0 5px;
+		}
+		.eventListCap{
+			position: relative;
+			padding-top: calc(65 / 100 * 100%);	
+			background-color: #8da1ad;
+			margin-bottom: 10px;
+			.artistsTotal{
+				cursor: default;
+				top: 5px;
+				left: 5px;
+				position: absolute;
+				font-size: 11px;
+				background-color: #fff;
+				color: $black;
+				padding: 1px 5px 0 5px;
+				z-index: 20;
+				&:hover{
+					& + .artistsTotalList{
+						opacity: 1;
+					}
+				}
+			}
+			.artistsTotalList{
+				position: absolute;
+				top: 25px;
+				left: 5px;
+				opacity: 0;
+				background-color: #fff;
+				font-size: 11px;
+				width: 90%;
+				z-index: 20;
+				li{
+					padding:2px 0;
+					padding-left: 3px;
+					border-bottom: 1px solid $gray;
+				}
+			}
+			.eventListCapNote{
+				@include cc;
+				color: #fff;
+				font-size: 18px;
+				display: block;
+				width: 100%;
+			}
+			img{
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				object-fit:cover;
+				z-index: 10;
+			}
+		}
+		.eventListTitle{
+			font-size: 14px;
+			margin-bottom: 10px;
+			height: 46px;
+		}
+	}
+}

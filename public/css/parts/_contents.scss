@@ -1,0 +1,19 @@
+@charset "utf-8";
+.contents{
+	margin: 0 auto;
+	&--default{
+		background-color: #fafafa;
+		min-height: 100vh;
+		padding-top: 4%;
+		padding-bottom: 5%;
+	}
+	&--gray{
+		background-color: #fafafa;
+	}
+	@include SP { 
+		width: auto;
+		padding-top: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

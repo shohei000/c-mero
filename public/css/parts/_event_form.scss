@@ -1,0 +1,266 @@
+@charset "utf-8";
+#eventCreate{
+
+	margin: 20px 20px;
+	background-color: #fff;
+	overflow: hidden;
+	
+	.createEventHead{
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 30px;
+		.createEventName{
+			width: 60%;	
+			text-align: center;
+		}
+		.createEventSave{
+			width: 20%;
+			text-align: center;
+		}	
+	}
+	.submitButton{
+		cursor: pointer;
+		border-radius: 3px;
+		width: 150px;
+		height: 38px;
+		line-height: 38px;
+		font-size: 18px;
+		font-weight: bold;
+		display: inline-block;
+		color: #fff;
+		background-color: $btn-submit-color;
+		&:hover{background-color: lighten($btn-submit-color, 15%);}
+		&--m{
+			width: 150px;
+		}
+	}
+
+	.artistDeleteMode{
+		cursor: pointer;
+		position: absolute;
+		top: 8px;
+		right: 19%;
+		padding-bottom: 3px;
+		&.is-active{
+			border-bottom: 2px solid $red;
+		}
+		img{
+			width: 25px;
+		}
+	}
+	
+	
+	.createMain{
+		width: calc(100% - 320px);
+		float: right;
+	}
+	.createSide{
+		float: left;
+		width: 300px;
+		margin-right: 20px;
+	}
+
+	.createTitle{
+		text-align: center;
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+
+	.inputTag{
+		padding: 5px;
+		width: 100%;
+		display: block;
+		font-size: 16px;
+		background-color: #f5f5f5;
+		border-radius: 3px;
+		padding: 10px;
+	}
+	
+	.createInfo{
+		border: 1px solid #e9e9e9;
+		border-radius: 3px;
+		padding: 15px;
+	}
+
+	.createLine{
+		margin-bottom: 15px;
+		// border-bottom: 1px solid #e9e9e9;
+		&:last-child{
+			border-bottom: 0;
+			margin-bottom: 0;
+		}
+		.createSideTitle{
+			font-size: 16px;
+			margin-bottom: 3px;
+			font-weight: bold;
+			.rei{
+				display: inline-block;
+				margin-left: 5px;	
+				font-weight: normal;
+			}
+		}
+		.createSideType{
+			position: relative;
+			margin-bottom: 10px;
+			// &:last-child{margin-bottom: 0;}
+			&--col2{
+				input{
+					display: inline-block;
+					width: 49%;
+				}
+			}
+		}
+		.infoCap{
+			position: relative;
+			height: 180px;
+			cursor: pointer;
+			background-color: #637c8a;
+		}
+	}
+	
+	.artistList{
+		display: flex;
+		flex-wrap:wrap;
+	}
+	.artistBox{
+		position: relative;
+		width: 32%;
+		margin-right: 2%;
+		margin-bottom: 2%;
+		border-radius: 3px;
+		border: 1px solid #e9e9e9;
+		background-color: #fff;
+		&.mode{
+			.artistBoxDelete{display: block;}
+		}
+		@include PC {
+			&:nth-child(3n){margin-right: 0;}
+		}
+		.artistBoxInner{
+			padding: 15px 15px 20px 15px;
+		}
+		.inputTag{
+			background: none;
+			border-bottom: 1px solid #f5f5f5;
+			border-radius: 0;
+			padding-left: 0;
+			line-height: 1.4;
+		}
+		.artistCap{
+			position: relative;
+			height: 180px;
+			cursor: pointer;
+			background-color: $event-action-color;
+			&:hover{background-color: lighten($event-action-color, 15%);}
+		}
+		& + .artistBoxAdd{
+			display: block;
+		}
+		.artistBoxDelete{
+			display: none;
+			cursor: pointer;
+			position: absolute;
+	    top: -5px;
+	    right: -5px;
+	    background: $red;
+	    color: #fff;
+	    width: 20px;
+	    height: 20px;
+	    border-radius: 50%;
+	    z-index: 50;
+	    span{
+				position: absolute;
+				@include cc;
+				font-size: 11px;
+			}
+		}
+		.artistTime{
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 100;
+			background:#f5f5f5;
+			width: 30%;
+			input{
+				width: 100%;
+				font-size: 14px;
+				padding: 4px 3px 4px 4px;
+				display: block;
+			}
+		}
+	}
+	.artistBoxAdd{
+		display: none;
+		position: relative;
+		width: 32%;
+		min-height: 160px;
+		.plus{
+			background-color: $event-action-color;
+			&:hover{background-color: lighten($event-action-color, 15%);}
+			b{color: #fff;}
+		}
+	}
+	.plus{
+		cursor: pointer;
+		@include cc;
+		background:#fff;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		display: block;
+		b{
+			@include cc;
+			font-size: 50px;
+	    font-family: auto;
+	    font-weight: normal;
+	    color: $event-action-color;
+		}
+	}
+	.inputCover{
+		cursor: pointer;
+		top: 0;
+		height: 100%;
+		display: block;
+		position: absolute;
+		width: 100%;
+		opacity: 0;
+		z-index: 20;
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			background-color: #fff;
+		}
+	}
+	.up-img-area{
+		img{
+			position: relative;
+			width: 100%;
+			height: 100%;
+			object-fit:cover;
+			z-index: 10;
+		}
+		.capDelete{
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: $gray;
+			color: $black;
+			border-radius: 3px;
+			padding: 0 5px;
+			font-size: 12px;
+			z-index: 30;
+		}
+	}
+
+	.must{
+		color: red;
+		font-size: 12px;
+	}
+	
+	
+}

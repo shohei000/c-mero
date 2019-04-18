@@ -1,0 +1,60 @@
+@charset "utf-8";
+.btn-wrap{
+	text-align: center;
+	a{text-decoration: none;}
+	&--mt{
+		margin-top: 20px;
+	}
+	.btn{
+		cursor: pointer;
+		display: inline-block;
+		border-radius: 3px;
+		color: #fff;
+		padding: 9px 0;
+		font-weight: bold;
+		&:hover{opacity: 0.7;}
+		&--blue{
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0076f0+0,00a2f0+50,00cef0+100 */
+			background: #3897f0; /* Old browsers */
+		}
+		&--form{
+			width: 100%;
+			font-size: 14px;
+			font-weight: bold;
+		}
+		&--edit{
+	    width: 100%;
+	    font-size: 14px;
+	    border: 1px solid #dbdbdb;
+	    color: #000;
+		}
+		&--createEvent{
+			width: 40%;
+		}
+	}
+}
+.btn-tw{
+	display: block;
+	margin-bottom: 30px !important;
+	padding-bottom: 30px;
+	border-bottom: 1px solid $gray;
+	.btn{
+		padding: 11px 0;
+	}
+	.icon-tw{
+		position: relative;
+		color: #fff;
+		&:after{
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: -26px;
+			transform: translateY(-50%);
+			content: "";
+			height: 15px;
+			width: 18px;
+			background: url(/img/icon_twitter_white.svg) no-repeat;
+			background-size: cover;
+		}
+	}
+}

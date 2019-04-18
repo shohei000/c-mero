@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.loading{
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	background-color: #fff;
+	z-index: 100;
+	opacity: 1;
+	display: block;
+	@include animationValue(loadingFade, 1, ease, 4.4 , 1, forwards);
+	.logoFrame{
+		width: 60%;
+		@include cc;
+		@include animationValue(loading, 2.8, ease, 1 , 1, forwards);
+		img{
+			width: 100%;
+		}
+	}
+}
+
+@include keyframes(loading) {
+  40%{width: 40%;}
+  60%{width: 40%;}
+  100%{width: 85%;}
+}
+@include keyframes(loadingFade) {
+ 	100%{opacity: 0;}
+}
