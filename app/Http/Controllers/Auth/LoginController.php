@@ -48,6 +48,7 @@ class LoginController extends Controller
                 'name' => $twitterUser->name,
           ]);
         }
+        $user->save();
         Auth::login($user);
         return redirect('/');
     }
