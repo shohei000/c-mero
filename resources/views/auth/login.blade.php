@@ -9,7 +9,7 @@
           {{ csrf_field() }}
           <div class="form-inner">
             <div class="form-item btn-tw btn-wrap">
-              <a href="" class="btn bg-tw btn--form"><span class="icon-tw">twitterでログインする</span></a>
+              <a href="/auth/twitter" class="btn bg-tw btn--form"><span class="icon-tw">twitterでログインする</span></a>
             </div>
             <div class="form-item form-group">
               <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' has-error' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="メールアドレス">
