@@ -43,10 +43,9 @@ class LoginController extends Controller
         // 例
         $user = User::where('twitter_id', $twitterUser->id)->first();
         if (!$user) {
-            $user = User::create([
-                'twitter_id' => $twitterUser->id,
-                'name' => $twitterUser->name,
-          ]);
+            $user = new User;
+            $user->name = $twitterUser->name;
+            $user->twitter_id = $twitterUser->id;
         }
         $user->save();
         Auth::login($user);
