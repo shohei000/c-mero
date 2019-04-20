@@ -34,8 +34,9 @@ Route::group(['middleware' => 'guest'], function (){
   Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
   Route::post('password/reset', 'Auth\ResetPasswordController@reset');
     
-
 });
+
+Route::get('event/{id}', 'EventController@detail');
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('user/mypage/', 'UserController@mypage')->name('mypage');
@@ -47,7 +48,6 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('event/create', 'EventController@create')->name('event.create');
   Route::post('event/create/confirm', 'EventController@confirm');
   Route::post('event/create/store', 'EventController@store');
-  Route::get('event/{id}', 'EventController@detail');
   Route::get('event/{id}/edit/', 'EventController@edit');
   Route::post('event/{id}/update/', 'EventController@update');
   Route::post('event/{id}/destroy/', 'EventController@destroy');
