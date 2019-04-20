@@ -19,6 +19,24 @@
     	object-fit: cover;
 		}
 	}
+	.mainMove{
+		display: none;
+		position: relative;
+		padding-top: calc(65 / 100 * 100%);
+		&.is-fixed{
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+		iframe{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+    	height: 100%;
+    	object-fit: cover;	
+		}
+	}
 	.serviceName{
 		color: #fff;
 		font-size: 13px;
