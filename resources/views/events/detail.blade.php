@@ -3,7 +3,7 @@
 @section('content')
 	<div id="eventView">
 		<div class="mainMove">
-	  	<iframe id="popup-YouTube-player" width="100%" height="100%"" src="https://www.youtube.com/embed/amBB_0XMOs0?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" donotallowfullscreen></iframe>
+	  	<iframe id="popup-YouTube-player" width="100%" height="100%"" src="https://www.youtube.com/embed/amBB_0XMOs0?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="false"></iframe>
 	  </div>
 	  <div class="pageKey pageKey--event">
 	  	@if($event->event_cap)
