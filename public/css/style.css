@@ -303,7 +303,8 @@ button {
   #eventView .mainMove iframe {
     position: absolute;
     top: 0;
-    left: 0; }
+    left: 0;
+    display: block; }
 #eventView .serviceName {
   color: #fff;
   font-size: 13px; }
