@@ -3,7 +3,7 @@
 @section('content')
 	<div id="eventView">
 		<div class="mainMove">
-	  	<iframe id="popup-YouTube-player" width="100%" height="100%"" src="https://www.youtube.com/embed/amBB_0XMOs0?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" playsinline="1"></iframe>
+	  	<iframe id="popup-YouTube-player" width="100%" height="100%"" src="https://www.youtube.com/embed/amBB_0XMOs0?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
 	  </div>
 	  <div class="pageKey pageKey--event">
 	  	@if($event->event_cap)
@@ -73,7 +73,7 @@
 			});
 			$('.YouTubeTrigger').on('click',function(e){
 				var YouTubeN = $(this).parents('.artistElm').attr('data-artist-id');
-				playerWindowDOM.attr('src', 'https://www.youtube.com/embed/'+ youTubeUrlArray[YouTubeN] + '?enablejsapi=1');
+				playerWindowDOM.attr('src', 'https://www.youtube.com/embed/'+ youTubeUrlArray[YouTubeN] + '?enablejsapi=1&playsinline=1');
 				setTimeout(() => {
 				  playerWindow.postMessage('{"event":"command","func":"'+'playVideo'+'","args":""}', '*');
 				},500)
