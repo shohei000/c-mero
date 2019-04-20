@@ -1,4 +1,4 @@
-  @extends('layouts.app')
+@extends('layouts.app')
 
 @section('styles')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -8,11 +8,11 @@
   <div class="contents contents--default">
     <h1 class="main-title">あなが作成したイベント</h1>
     <div class="myEvent">
-      <ul class="sortTab">
-        <li><a href="/user/mypage?sort_type=updated_at" class="{{ $sort_type === 'updated_at' ? 'active' : ''}}">作成・変更した順</a></li>
-        <li><a href="/user/mypage?sort_type=open_date" class="{{ $sort_type === 'open_date' ? 'active' : ''}}">開催日順</a></li>
-      </ul>
       @if(!empty($events[0]))
+        <ul class="sortTab">
+          <li><a href="/user/mypage?sort_type=updated_at" class="{{ $sort_type === 'updated_at' ? 'active' : ''}}">作成・変更した順</a></li>
+          <li><a href="/user/mypage?sort_type=open_date" class="{{ $sort_type === 'open_date' ? 'active' : ''}}">開催日順</a></li>
+        </ul>
         <ul class="eventList">
           @foreach($events as $event)
             <li class="eventListLi">
@@ -46,7 +46,7 @@
         {{ $events->links('vendor.pagination.bootstrap-4') }}
         <div class="btn-wrap"><a href="/event/create" class="btn btn--blue btn--createEvent">イベントを作成する</a></div>
       @else
-      なし！！！！
+      <div class="btn-wrap"><a href="/event/create" class="btn btn--blue btn--createEvent">イベントを作成する</a></div>
       @endif
     </div>
 
