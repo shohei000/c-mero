@@ -73,7 +73,7 @@
 			});
 			$('.YouTubeTrigger').on('click',function(e){
 				var YouTubeN = $(this).parents('.artistElm').attr('data-artist-id');
-				playerWindowDOM.attr('src', 'https://www.youtube.com/embed/'+ youTubeUrlArray[YouTubeN] + '?enablejsapi=1&playsinline=1');
+				playerWindowDOM.attr('src', 'https://www.youtube.com/embed/'+ youTubeUrlArray[YouTubeN] + '?enablejsapi=1&playsinline=1&controls=0&showinfo=0');
 				setTimeout(() => {
 				  playerWindow.postMessage('{"event":"command","func":"'+'playVideo'+'","args":""}', '*');
 				},500)
