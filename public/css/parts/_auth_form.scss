@@ -19,7 +19,9 @@
 .form-area{
 	background-color: #fff;
 	.form-inner{
-		width: 60%;
+		@include PC {
+			width: 60%;
+		}
 		margin: 0 auto;
 	}
 }

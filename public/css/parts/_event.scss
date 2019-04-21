@@ -1,5 +1,6 @@
 @charset "UTF-8";
 #eventView{
+	padding-bottom: 120px;
 	@include PC {
 		width: 600px;
 		margin: 0 auto;

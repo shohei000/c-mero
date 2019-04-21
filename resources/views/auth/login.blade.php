@@ -24,7 +24,7 @@
               @endif
             </div>
             <div class="btn-wrap btn-wrap--mt"><button type="submit" class="btn btn--blue btn--form">Eメールでログインする</button></div>
-            <div class="forgetPass">パスワードを忘れた方は<a href="">こちら</a></div>
+            <div class="forgetPass">パスワードを忘れた方は<a href="/pass/">こちら</a></div>
           </div>
           <!-- <div class="btn-wrap"><a href="/user/sign_up" class="btn btn--blue btn--l"><span>新規登録</span></a></div> -->
         </form>

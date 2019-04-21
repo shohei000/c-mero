@@ -278,171 +278,173 @@ button {
       margin-left: 10px;
       margin-right: 10px; } }
 
-@media (min-width: 769px) {
-  #eventView {
-    width: 600px;
-    margin: 0 auto; } }
-#eventView .pageKey--event {
-  padding-top: calc(65 / 100 * 100%);
-  position: relative; }
+#eventView {
+  padding-bottom: 120px; }
   @media (min-width: 769px) {
-    #eventView .pageKey--event {
-      padding-top: calc(65 / 110 * 100%); } }
-  #eventView .pageKey--event img {
+    #eventView {
+      width: 600px;
+      margin: 0 auto; } }
+  #eventView .pageKey--event {
+    padding-top: calc(65 / 100 * 100%);
+    position: relative; }
+    @media (min-width: 769px) {
+      #eventView .pageKey--event {
+        padding-top: calc(65 / 110 * 100%); } }
+    #eventView .pageKey--event img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  #eventView .mainMove {
+    display: none;
+    position: relative;
+    padding-top: 56.25%;
+    width: 100%; }
+    #eventView .mainMove iframe {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block; }
+  #eventView .serviceName {
+    color: #fff;
+    font-size: 13px; }
+  #eventView .artistList {
+    border-top: 1px solid #f0f0f0; }
+  #eventView .artistList > li {
+    border-bottom: 1px solid #f0f0f0; }
+  #eventView .artistElm {
+    display: block;
+    position: relative;
+    padding: 8px 8px 8px 8px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    color: #333; }
+  #eventView .artistName {
+    width: 73%;
+    word-break: break-word;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.4;
+    -webkit-line-clamp: 3 !important;
+    height: 2.8em;
+    overflow: hidden; }
+  #eventView .artisLabels {
+    position: absolute;
+    bottom: 8px; }
+  #eventView .artisLabels li {
+    color: #777777;
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 3px; }
+    #eventView .artisLabels li.time img {
+      top: -1px;
+      width: 14px;
+      display: inline-block;
+      margin-right: 2px;
+      line-height: 1;
+      position: relative; }
+    #eventView .artisLabels li:last-child {
+      margin-right: 0; }
+  #eventView .artistInfo {
+    width: calc(100% - 110px);
+    margin-right: 10px; }
+  #eventView .artistCap {
+    width: 100px;
+    height: 65px; }
+  #eventView .artistCap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  #eventView .YouTubeTrigger {
+    display: block;
+    position: absolute;
+    width: 50px;
+    right: 130px;
+    top: 50%;
+    transform: translateY(-50%); }
+    #eventView .YouTubeTrigger img {
+      width: 100%; }
+  #eventView .eventCapNone {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; }
-#eventView .mainMove {
-  display: none;
-  position: relative;
-  padding-top: 56.25%;
-  width: 100%; }
-  #eventView .mainMove iframe {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block; }
-#eventView .serviceName {
-  color: #fff;
-  font-size: 13px; }
-#eventView .artistList {
-  border-top: 1px solid #f0f0f0; }
-#eventView .artistList > li {
-  border-bottom: 1px solid #f0f0f0; }
-#eventView .artistElm {
-  display: block;
-  position: relative;
-  padding: 8px 8px 8px 8px;
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
-  text-decoration: none;
-  color: #333; }
-#eventView .artistName {
-  width: 73%;
-  word-break: break-word;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.4;
-  -webkit-line-clamp: 3 !important;
-  height: 2.8em;
-  overflow: hidden; }
-#eventView .artisLabels {
-  position: absolute;
-  bottom: 8px; }
-#eventView .artisLabels li {
-  color: #777777;
-  font-size: 14px;
-  display: inline-block;
-  margin-right: 3px; }
-  #eventView .artisLabels li.time img {
-    top: -1px;
-    width: 14px;
-    display: inline-block;
-    margin-right: 2px;
-    line-height: 1;
-    position: relative; }
-  #eventView .artisLabels li:last-child {
-    margin-right: 0; }
-#eventView .artistInfo {
-  width: calc(100% - 110px);
-  margin-right: 10px; }
-#eventView .artistCap {
-  width: 100px;
-  height: 65px; }
-#eventView .artistCap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; }
-#eventView .YouTubeTrigger {
-  display: block;
-  position: absolute;
-  width: 50px;
-  right: 130px;
-  top: 50%;
-  transform: translateY(-50%); }
-  #eventView .YouTubeTrigger img {
-    width: 100%; }
-#eventView .eventCapNone {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  border-bottom: 1px solid #f0f0f0;
-  background-repeat: no-repeat;
-  background-image: url(/img/event/event_cap_none_bg5.png);
-  background-size: cover; }
-  #eventView .eventCapNone--1 {
-    background-image: url(/img/event/event_cap_none_bg1.png); }
-  #eventView .eventCapNone--2 {
-    background-image: url(/img/event/event_cap_none_bg2.png); }
-  #eventView .eventCapNone--3 {
-    background-image: url(/img/event/event_cap_none_bg3.png); }
-  #eventView .eventCapNone--4 {
-    background-image: url(/img/event/event_cap_none_bg4.png); }
-  #eventView .eventCapNone--5 {
-    background-image: url(/img/event/event_cap_none_bg5.png); }
-  #eventView .eventCapNone .eventCapNoneInner {
     text-align: center;
-    position: absolute;
+    border-bottom: 1px solid #f0f0f0;
+    background-repeat: no-repeat;
+    background-image: url(/img/event/event_cap_none_bg5.png);
+    background-size: cover; }
+    #eventView .eventCapNone--1 {
+      background-image: url(/img/event/event_cap_none_bg1.png); }
+    #eventView .eventCapNone--2 {
+      background-image: url(/img/event/event_cap_none_bg2.png); }
+    #eventView .eventCapNone--3 {
+      background-image: url(/img/event/event_cap_none_bg3.png); }
+    #eventView .eventCapNone--4 {
+      background-image: url(/img/event/event_cap_none_bg4.png); }
+    #eventView .eventCapNone--5 {
+      background-image: url(/img/event/event_cap_none_bg5.png); }
+    #eventView .eventCapNone .eventCapNoneInner {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%;
+      color: #fff; }
+    #eventView .eventCapNone .eventCapNoneTitle {
+      font-size: 20px;
+      margin: 0 10px;
+      font-size: 22px; }
+    #eventView .eventCapNone .eventCapNoneDate {
+      font-size: 18px; }
+  #eventView .eventInfo {
+    padding: 10px;
+    margin-bottom: 30px; }
+    #eventView .eventInfo__date {
+      font-weight: bold;
+      font-size: 18px; }
+    #eventView .eventInfo__location {
+      font-size: 16px;
+      margin-bottom: 10px; }
+    #eventView .eventInfo__eventTitle {
+      position: relative;
+      font-size: 18px;
+      font-weight: bold; }
+  #eventView .zoomCap {
+    position: fixed;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     width: 100%;
-    color: #fff; }
-  #eventView .eventCapNone .eventCapNoneTitle {
-    font-size: 20px;
-    margin: 0 10px;
-    font-size: 22px; }
-  #eventView .eventCapNone .eventCapNoneDate {
-    font-size: 18px; }
-#eventView .eventInfo {
-  padding: 10px;
-  margin-bottom: 30px; }
-  #eventView .eventInfo__date {
-    font-weight: bold;
-    font-size: 18px; }
-  #eventView .eventInfo__location {
-    font-size: 16px;
-    margin-bottom: 10px; }
-  #eventView .eventInfo__eventTitle {
-    position: relative;
-    font-size: 18px;
-    font-weight: bold; }
-#eventView .zoomCap {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100vh;
-  display: none;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.7); }
-  #eventView .zoomCap img {
-    position: absolute;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+    height: 100vh;
+    display: none;
     transform: translate(-50%, -50%);
-    width: 90%; }
-#eventView .twitterShare {
-  position: fixed;
-  bottom: 30px;
-  right: 20px;
-  width: 50px; }
-  #eventView .twitterShare img {
-    width: 100%; }
+    background-color: rgba(255, 255, 255, 0.7); }
+    #eventView .zoomCap img {
+      position: absolute;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 90%; }
+  #eventView .twitterShare {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 50px; }
+    #eventView .twitterShare img {
+      width: 100%; }
 
 .myEvent {
   width: 935px;
@@ -653,8 +655,10 @@ button {
 .form-area {
   background-color: #fff; }
   .form-area .form-inner {
-    width: 60%;
     margin: 0 auto; }
+    @media (min-width: 769px) {
+      .form-area .form-inner {
+        width: 60%; } }
 
 .form-item {
   text-align: center;
