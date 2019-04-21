@@ -71,6 +71,16 @@
 		font-size: 14px;
 		display: inline-block;
 		margin-right: 3px;
+		&.time{
+			img{
+				top: -1px;
+		    width: 14px;
+		    display: inline-block;
+		    margin-right: 2px;
+		    line-height: 1;
+		    position: relative;
+			}
+		}
 		&:last-child{margin-right: 0;}
 	}
 	.artistInfo{
@@ -134,7 +144,7 @@
 		margin-bottom: 30px;
 		&__date{
 			font-weight: bold;
-			font-size: 16px;
+			font-size: 18px;
 		}
 		&__location{
 			font-size: 16px;
@@ -161,5 +171,13 @@
 			@include cc();
 			width: 90%;
 		}
+	}
+
+	.twitterShare{
+		position: fixed;
+		bottom: 30px;
+    right: 20px;
+		width: 50px;
+		img{width: 100%;}
 	}
 }

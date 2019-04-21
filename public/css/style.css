@@ -339,6 +339,13 @@ button {
   font-size: 14px;
   display: inline-block;
   margin-right: 3px; }
+  #eventView .artisLabels li.time img {
+    top: -1px;
+    width: 14px;
+    display: inline-block;
+    margin-right: 2px;
+    line-height: 1;
+    position: relative; }
   #eventView .artisLabels li:last-child {
     margin-right: 0; }
 #eventView .artistInfo {
@@ -402,7 +409,7 @@ button {
   margin-bottom: 30px; }
   #eventView .eventInfo__date {
     font-weight: bold;
-    font-size: 16px; }
+    font-size: 18px; }
   #eventView .eventInfo__location {
     font-size: 16px;
     margin-bottom: 10px; }
@@ -429,6 +436,13 @@ button {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 90%; }
+#eventView .twitterShare {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 50px; }
+  #eventView .twitterShare img {
+    width: 100%; }
 
 .myEvent {
   width: 935px;

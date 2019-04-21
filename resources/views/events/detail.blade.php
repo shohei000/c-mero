@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('ogp')
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="og:description" content="{{$event->open_date}}" />
+	<meta property="og:image" content="/storage/event/{{ $event->id }}/{{$event->event_cap}}" />
+@endsection
+
 @section('content')
 	<div id="eventView">
 		<div class="mainMove">
@@ -18,7 +24,13 @@
 		</div>
 		<ul class="eventInfo">
 			<li class="eventInfo__date">{{$event->open_date}}</li>
-			<li class="eventInfo__location"><a href="https://www.google.com/search?q={{$event->location_name}}">{{$event->location_name}}</a></li>
+			<li class="eventInfo__location">
+				@if($event->location_url)
+					<a href="{{$event->location_url}}">{{$event->location_name}}</a>
+				@else
+					<a href="https://www.google.com/search?q={{$event->location_name}}">{{$event->location_name}}</a>
+				@endif
+			</li>
 			<li class="eventInfo__eventTitle">{{$event->event_name}}</li>
 		</ul>
 		<h3 class="simp-title">出演アーティスト</h3>
@@ -26,13 +38,12 @@
 			<?php $i=0; ?>
 			@foreach($artists as $artist)
 			<li>
-				{{$artist->artist_youTube}}
 				<div href="#" class="artistElm" data-youTube="{{ $artist->artist_youtube }}" data-artist-id="<?php echo $i++; ?>">
-					<span class="YouTubeTrigger"><img src="/img/youtube.png" alt=""></span>
+					@if($artist->artist_youtube)<span class="YouTubeTrigger"><img src="/img/youtube.png" alt=""></span>@endif
 					<div class="artistInfo">
 						<h2 class="artistName">{{ $artist->artist_name }}</h2>
 						<ul class="artisLabels">
-							<li>@if($artist->artist_time) {{ $artist->artist_time }}〜 @endif</li>
+							<li class="time">@if($artist->artist_time) <img src="/img/clock.png" alt=""> {{ $artist->artist_time }}〜 @endif</li>
 						</ul>
 					</div>
 					<div class="artistCap">
@@ -47,6 +58,11 @@
 			@endforeach
 		</ul>
 		<div class="zoomCap"><img src="" alt=""></div>
+		<div class="twitterShare">
+			<a href="//twitter.com/share?text={{$event->event_name}}&url={{ Request::url()}}" class="twitter-share-button">
+				<img src="/img/twitter.svg" alt="">
+			</a>
+		</div>
 	</div>
 @endsection
 
