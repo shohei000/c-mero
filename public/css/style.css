@@ -304,7 +304,7 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    display: block; }
+    display: none; }
 #eventView .serviceName {
   color: #fff;
   font-size: 13px; }

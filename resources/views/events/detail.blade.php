@@ -59,10 +59,12 @@
 			function stateChange(state){
 				if(state == 'YouTube'){
 					$('.pageKey').hide();
+					playerWindowDOM.show();
 					$('.mainMove').show();
 				}
 				if(state == 'cap'){
 					$('.pageKey').show();
+					playerWindowDOM.hide();
 					$('.mainMove').hide();
 				}
 			}
