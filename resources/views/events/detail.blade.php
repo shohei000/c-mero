@@ -28,7 +28,7 @@
 			<li>
 				{{$artist->artist_youTube}}
 				<div href="#" class="artistElm" data-youTube="{{ $artist->artist_youtube }}" data-artist-id="<?php echo $i++; ?>">
-					<span class="YouTubeTrigger">YouTubeを聞く</span>
+					<span class="YouTubeTrigger"><img src="/img/youtube.png" alt=""></span>
 					<div class="artistInfo">
 						<h2 class="artistName">{{ $artist->artist_name }}</h2>
 						<ul class="artisLabels">
@@ -46,6 +46,7 @@
 			</li>
 			@endforeach
 		</ul>
+		<div class="zoomCap"><img src="/img/event/event_cap_none_bg1.png" alt=""></div>
 	</div>
 @endsection
 
@@ -70,11 +71,13 @@
 					playerWindowDOM.css('opacity',0);
 				}
 			}
+			
 			$('.artistElm').each(function(index, el) {
 				var youTubeUrl = $(this).attr('data-youTube');
 				youTubeId = youTubeUrl.replace('https://www.youtube.com/watch?v=', '');
 				youTubeUrlArray.push(youTubeId);
 			});
+
 			$('.YouTubeTrigger').on('click',function(e){
 				var YouTubeN = $(this).parents('.artistElm').attr('data-artist-id');
 				playerWindowDOM.attr('src', 'https://www.youtube.com/embed/'+ youTubeUrlArray[YouTubeN] + '?enablejsapi=1&playsinline=1&showinfo=0');
@@ -84,6 +87,14 @@
 				stateChange('YouTube');
 				$('body,html').animate({scrollTop:0}, 500, 'swing');
 			});
+
+			$('.artistCap').on("touchstart", function(){
+				$('.zoomCap').show();
+			});
+			$('.artistCap').on("touchend", function(){
+				$('.zoomCap').hide();
+			});
+
 		});
 	</script>
 @endsection

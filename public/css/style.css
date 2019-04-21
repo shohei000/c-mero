@@ -323,6 +323,7 @@ button {
   text-decoration: none;
   color: #333; }
 #eventView .artistName {
+  width: 73%;
   word-break: break-word;
   font-weight: 700;
   font-size: 16px;
@@ -350,6 +351,15 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover; }
+#eventView .YouTubeTrigger {
+  display: block;
+  position: absolute;
+  width: 50px;
+  right: 130px;
+  top: 50%;
+  transform: translateY(-50%); }
+  #eventView .YouTubeTrigger img {
+    width: 100%; }
 #eventView .eventCapNone {
   position: absolute;
   top: 0;
@@ -400,6 +410,25 @@ button {
     position: relative;
     font-size: 18px;
     font-weight: bold; }
+#eventView .zoomCap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6); }
+  #eventView .zoomCap img {
+    position: absolute;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 80%; }
 
 .myEvent {
   width: 935px;
