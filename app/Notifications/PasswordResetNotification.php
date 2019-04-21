@@ -11,6 +11,9 @@ class PasswordResetNotification extends Notification
 {
     use Queueable;
 
+    public $token;
+    protected $title = 'c-mero パスワードリセット 通知';
+
     /**
      * Create a new notification instance.
      *
@@ -41,9 +44,12 @@ class PasswordResetNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject($this->title)
+            ->view(
+            'mail.passwordreset',
+            [
+              'reset_url' => url('password/reset', $this->token),
+            ]);
     }
 
     /**
