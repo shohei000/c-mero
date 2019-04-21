@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('ogp')
-	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="og:title" content="{{$event->event_name}}" />
 	<meta property="og:description" content="{{$event->open_date}}" />
+	<meta property="og:site_name" content="https://c-mero.site" />
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="og:image" content="https://c-mero.site/storage/event/{{ $event->id }}/{{$event->event_cap}}" />
 @endsection
 
