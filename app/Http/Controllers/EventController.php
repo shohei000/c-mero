@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
 
+
+
 	public $messages = [
     'event_name.required' => 'イベント名は必須です。',
     'open_date.required' => '日程は必須です。',

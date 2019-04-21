@@ -11,8 +11,11 @@
 |
 */
 
+
+
+
 Route::group(['middleware' => 'guest'], function (){
-	Route::get('/', 'HomeController@index')->name('mypage');  
+	Route::get('/', 'HomeController@index')->name('mypage'); 
 
 	Route::get('user/login', 'Auth\LoginController@showLoginForm')->name('login');
 	Route::post('user/login', 'Auth\LoginController@login');
@@ -33,10 +36,9 @@ Route::group(['middleware' => 'guest'], function (){
   Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
   Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
   Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-    
+
 });
 
-Route::get('event/{id}', 'EventController@detail');
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('user/mypage/', 'UserController@mypage')->name('mypage');
@@ -53,4 +55,5 @@ Route::group(['middleware' => 'auth'], function(){
   Route::post('event/{id}/destroy/', 'EventController@destroy');
 });
 
+Route::get('event/{id}', 'EventController@detail');
 

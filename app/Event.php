@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+
   public function artists(){
     return $this->hasMany('App\Artist');
   }
