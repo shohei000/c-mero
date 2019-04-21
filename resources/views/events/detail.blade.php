@@ -3,7 +3,7 @@
 @section('ogp')
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="og:description" content="{{$event->open_date}}" />
-	<meta property="og:image" content="/storage/event/{{ $event->id }}/{{$event->event_cap}}" />
+	<meta property="og:image" content="https://c-mero.site/storage/event/{{ $event->id }}/{{$event->event_cap}}" />
 @endsection
 
 @section('content')
