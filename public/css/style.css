@@ -418,7 +418,7 @@ button {
   height: 100vh;
   display: none;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.6); }
+  background-color: rgba(255, 255, 255, 0.7); }
   #eventView .zoomCap img {
     position: absolute;
     text-align: center;
@@ -428,7 +428,7 @@ button {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 80%; }
+    width: 90%; }
 
 .myEvent {
   width: 935px;

@@ -155,11 +155,11 @@
 		height: 100vh;
 		display: none;
 		transform: translate(-50%,-50%);
-		background-color: rgba(0,0,0,0.6);
+		background-color: rgba(255, 255, 255, 0.7);
 		img{
 			position: absolute;
 			@include cc();
-			width: 80%;
+			width: 90%;
 		}
 	}
 }
