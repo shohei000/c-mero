@@ -301,10 +301,11 @@ button {
   padding-top: 56.25%;
   width: 100%; }
   #eventView .mainMove iframe {
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
-    display: none; }
+    display: block; }
 #eventView .serviceName {
   color: #fff;
   font-size: 13px; }
