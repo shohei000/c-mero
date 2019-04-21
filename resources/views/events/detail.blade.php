@@ -46,7 +46,7 @@
 			</li>
 			@endforeach
 		</ul>
-		<div class="zoomCap"><img src="/img/event/event_cap_none_bg1.png" alt=""></div>
+		<div class="zoomCap"><img src="" alt=""></div>
 	</div>
 @endsection
 
@@ -89,10 +89,11 @@
 			});
 
 			$('.artistCap').on("touchstart", function(){
-				$('.zoomCap').show();
+				var imgSrc = $(this).find('img').attr('src');
+				$('.zoomCap').show().append('<img src="'+imgSrc+'">');
 			});
 			$('.artistCap').on("touchend", function(){
-				$('.zoomCap').hide();
+				$('.zoomCap').hide().find('img').remove();
 			});
 
 		});
