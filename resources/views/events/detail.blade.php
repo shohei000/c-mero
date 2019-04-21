@@ -61,7 +61,7 @@
 		</ul>
 		<div class="zoomCap"><img src="" alt=""></div>
 		<div class="twitterShare">
-			<a href="//twitter.com/share?text={{$event->event_name}}&url={{ Request::url()}}" class="twitter-share-button">
+			<a href="//twitter.com/share?url={{ Request::url()}}" class="twitter-share-button">
 				<img src="/img/twitter.svg" alt="">
 			</a>
 		</div>
