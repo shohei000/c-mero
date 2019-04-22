@@ -84,8 +84,11 @@ class EventController extends Controller
 		return redirect('/user/mypage');
 	}
 
-	public function edit(Request $request){
-		$event = Event::where('id', $request->id)->first();
+	public function edit(Request $request, $id){
+		$event = Event::where('id', $id)->first();
+		if(\Auth::user()->id !== $event->user_id){
+			return redirect('/user/login/');
+		}
 		$artists = $event->artists()->get();
 		return view('events.edit')->with(compact("artists", "event"));
 	}
