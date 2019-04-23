@@ -53,8 +53,4 @@ class ResetPasswordController extends Controller
         $this->guard()->login($user);
     }
 
-    protected function resetComplete(){
-        return view('auth.passwords.send_complete');
-    }
-
 }
