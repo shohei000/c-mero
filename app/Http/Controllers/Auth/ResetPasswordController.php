@@ -35,6 +35,11 @@ class ResetPasswordController extends Controller
      * @return void
      */
 
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     protected function resetPassword($user, $password)
     {
         $user->password = $password;
@@ -48,8 +53,8 @@ class ResetPasswordController extends Controller
         $this->guard()->login($user);
     }
 
-    public function __construct()
-    {
-        $this->middleware('guest');
+    protected function resetComplete(){
+        return view('auth.passwords.send_complete');
     }
+
 }
