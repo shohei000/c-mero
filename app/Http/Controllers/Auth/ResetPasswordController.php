@@ -32,6 +32,20 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
+
+    protected function resetPassword($user, $password)
+    {
+        $user->password = $password;
+
+        $user->setRememberToken(Str::random(60));
+
+        $user->save();
+
+        event(new PasswordReset($user));
+
+        $this->guard()->login($user);
+    }
+
     public function __construct()
     {
         $this->middleware('guest');
