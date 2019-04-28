@@ -294,11 +294,11 @@ button {
       width: 600px;
       margin: 0 auto; } }
   #eventView .pageKey--event {
-    padding-top: calc(65 / 100 * 100%);
+    padding-top: 56.25%;
     position: relative; }
     @media (min-width: 769px) {
       #eventView .pageKey--event {
-        padding-top: calc(65 / 110 * 100%); } }
+        padding-top: 56.25%; } }
     #eventView .pageKey--event img {
       position: absolute;
       top: 0;
@@ -334,7 +334,7 @@ button {
     text-decoration: none;
     color: #333; }
   #eventView .artistName {
-    width: 73%;
+    width: 80%;
     word-break: break-word;
     font-weight: 700;
     font-size: 16px;
@@ -342,6 +342,10 @@ button {
     -webkit-line-clamp: 3 !important;
     height: 2.8em;
     overflow: hidden; }
+    #eventView .artistName a {
+      color: #262626; }
+      #eventView .artistName a img {
+        width: 14px; }
   #eventView .artisLabels {
     position: absolute;
     bottom: 8px; }
@@ -361,7 +365,7 @@ button {
       margin-right: 0; }
   #eventView .artistInfo {
     width: calc(100% - 110px);
-    margin-right: 10px; }
+    margin-left: 10px; }
   #eventView .artistCap {
     width: 100px;
     height: 65px; }
@@ -372,12 +376,10 @@ button {
   #eventView .YouTubeTrigger {
     display: block;
     position: absolute;
-    width: 50px;
-    right: 130px;
+    width: 36px;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%); }
-    #eventView .YouTubeTrigger img {
-      width: 100%; }
   #eventView .eventCapNone {
     position: absolute;
     top: 0;
@@ -417,13 +419,34 @@ button {
       font-size: 18px; }
   #eventView .eventInfo {
     padding: 10px;
-    margin-bottom: 30px; }
+    margin-bottom: 24px; }
     #eventView .eventInfo__date {
-      font-weight: bold;
-      font-size: 18px; }
-    #eventView .eventInfo__location {
-      font-size: 16px;
+      font-size: 18px;
       margin-bottom: 10px; }
+      #eventView .eventInfo__date .dataIcon {
+        display: inline-block;
+        margin-right: 11px;
+        width: 20px;
+        position: relative;
+        top: -1px; }
+        #eventView .eventInfo__date .dataIcon img {
+          width: 100%; }
+    #eventView .eventInfo__location {
+      font-size: 18px;
+      margin-bottom: 24px; }
+      #eventView .eventInfo__location a {
+        color: #262626;
+        padding-right: 22px;
+        background: url(../img/external-link-symbol.svg) no-repeat 100% center;
+        background-size: 14px; }
+      #eventView .eventInfo__location .locationIcon {
+        display: inline-block;
+        margin-right: 3px;
+        width: 20px;
+        position: relative;
+        top: -1px; }
+        #eventView .eventInfo__location .locationIcon img {
+          width: 100%; }
     #eventView .eventInfo__eventTitle {
       position: relative;
       font-size: 18px;
@@ -449,11 +472,22 @@ button {
       width: 90%; }
   #eventView .twitterShare {
     position: fixed;
-    bottom: 30px;
-    right: 20px;
-    width: 50px; }
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    background: #1DA1F2;
+    font-weight: bold; }
+    @media (min-width: 769px) {
+      #eventView .twitterShare {
+        width: 600px; } }
+    #eventView .twitterShare a {
+      color: #fff;
+      display: block; }
     #eventView .twitterShare img {
-      width: 100%; }
+      width: 15px;
+      position: relative;
+      top: -1px; }
 
 .myEvent {
   width: 935px;

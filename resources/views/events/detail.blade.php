@@ -24,36 +24,43 @@
 				</div>
 			@endif
 		</div>
-		<ul class="eventInfo">
-			<li class="eventInfo__date">{{$event->open_date}}</li>
-			<li class="eventInfo__location">
+		<div class="eventInfo">
+			<div class="eventInfo__date"><span class="dataIcon"><img src="/img/calendar.svg" alt=""></span>{{$event->open_date}}</div>
+			<div class="eventInfo__location">
+				<span class="locationIcon"><img src="/img/maps-and-flags.svg" alt=""></span>
 				@if($event->location_url)
 					<a href="{{$event->location_url}}">{{$event->location_name}}</a>
 				@else
 					<a href="https://www.google.com/search?q={{$event->location_name}}">{{$event->location_name}}</a>
 				@endif
-			</li>
-			<li class="eventInfo__eventTitle">{{$event->event_name}}</li>
-		</ul>
+			</div>
+			<div class="eventInfo__eventTitle">{{$event->event_name}}</div>
+		</div>
 		<h3 class="simp-title">出演アーティスト</h3>
 		<ul class="artistList">
 			<?php $i=0; ?>
 			@foreach($artists as $artist)
 			<li>
 				<div href="#" class="artistElm" data-youTube="{{ $artist->artist_youtube }}" data-artist-id="<?php echo $i++; ?>">
-					@if($artist->artist_youtube)<span class="YouTubeTrigger"><img src="/img/youtube.png" alt=""></span>@endif
-					<div class="artistInfo">
-						<h2 class="artistName">{{ $artist->artist_name }}</h2>
-						<ul class="artisLabels">
-							<li class="time">@if($artist->artist_time) <img src="/img/clock.png" alt=""> {{ $artist->artist_time }}〜 @endif</li>
-						</ul>
-					</div>
+					@if($artist->artist_youtube)<span class="YouTubeTrigger"><img src="/img/play-button-silhouette.svg" alt=""></span>@endif
 					<div class="artistCap">
 						@if($artist->artist_cap)
 							<img src="/storage/artists/{{ $artist->id }}/{{$artist->artist_cap}}">
 						@else
-							<img src="/img/logo_frame.svg">
+							<img src="/img/event/soon.png">
 						@endif
+					</div>
+					<div class="artistInfo">
+						<h2 class="artistName">
+							@if($artist->artist_tw)
+								<a href="{{ $artist->artist_tw }}">{{ $artist->artist_name }} <img src="/img/icon_twitter_blue.svg" alt=""></a>
+							@else
+								{{ $artist->artist_name }}
+							@endif
+						</h2>
+						<ul class="artisLabels">
+							<li class="time">@if($artist->artist_time) <img src="/img/clock.png" alt=""> {{ $artist->artist_time }}〜 @endif</li>
+						</ul>
 					</div>
 				</div>
 			</li>
@@ -62,7 +69,8 @@
 		<div class="zoomCap"><img src="" alt=""></div>
 		<div class="twitterShare">
 			<a href="//twitter.com/share?url={{ Request::url()}}" class="twitter-share-button">
-				<img src="/img/twitter.png" alt="">
+				このイベントを盛り上げる！
+				<span><img src="/img/icon_twitter_white.svg" alt=""></span>
 			</a>
 		</div>
 	</div>
@@ -112,6 +120,11 @@
 			});
 			$('.artistCap').on("touchend", function(){
 				$('.zoomCap').hide().find('img').remove();
+			});
+
+			$('.eventInfo').on('click',function(){
+				playerWindow.postMessage('{"event":"command","func":"'+"pauseVideo"+'","args":""}', '*');
+			  stateChange('cap');
 			});
 
 		});

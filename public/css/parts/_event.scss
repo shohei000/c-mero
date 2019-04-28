@@ -6,10 +6,10 @@
 		margin: 0 auto;
 	}
 	.pageKey--event{
-		padding-top: calc(65 / 100 * 100%);
+		padding-top: 56.25%;
 		position: relative;
 		@include PC {
-			padding-top: calc(65 / 110 * 100%);
+			padding-top: 56.25%;
 		}
 		img{
 			position: absolute;
@@ -54,7 +54,7 @@
 		color: #333;
 	}
 	.artistName{
-		width: 73%;
+		width: 80%;
 	  word-break: break-word;
 	  font-weight: 700;
 	  font-size: 16px;
@@ -62,6 +62,10 @@
 	  -webkit-line-clamp: 3!important;
 	  height: 2.8em;
 	  overflow: hidden;
+	  a{
+	  	color: $black;
+	  	img{width: 14px;}
+	  }
 	}
 	.artisLabels{
 		position: absolute;
@@ -86,7 +90,7 @@
 	}
 	.artistInfo{
 		width: calc(100% - 110px);
-		margin-right: 10px;
+		margin-left: 10px;
 	}
 	.artistCap{
 		width: 100px;
@@ -100,12 +104,11 @@
 
 	.YouTubeTrigger{
 		display: block;
-		position: absolute;
-		width: 50px;
-		right: 130px;
-		top: 50%;
-		transform: translateY(-50%);
-		img{width: 100%;}
+    position: absolute;
+    width: 36px;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
 	}
 
 	//イベント画像が無い時
@@ -142,14 +145,36 @@
 
 	.eventInfo{
 		padding: 10px;
-		margin-bottom: 30px;
+		margin-bottom: 24px;
 		&__date{
-			font-weight: bold;
 			font-size: 18px;
+			margin-bottom: 10px;
+			.dataIcon{
+				display: inline-block;
+		    margin-right: 11px;
+		    width: 20px;
+		    position: relative;
+		    top: -1px;
+				img{width: 100%;}
+			}
 		}
 		&__location{
-			font-size: 16px;
-			margin-bottom: 10px;
+			font-size: 18px;
+			margin-bottom: 24px;
+			a{
+				color: $black;
+		    padding-right: 22px;
+		    background: url(../img/external-link-symbol.svg) no-repeat 100% center;
+		    background-size: 14px;
+			}
+			.locationIcon{
+				display: inline-block;
+		    margin-right: 3px;
+		    width: 20px;
+		    position: relative;
+		    top: -1px;
+				img{width: 100%;}
+			}
 		}
 		&__eventTitle{
 			position: relative;
@@ -176,9 +201,23 @@
 
 	.twitterShare{
 		position: fixed;
-		bottom: 30px;
-    right: 20px;
-		width: 50px;
-		img{width: 100%;}
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    background: #1DA1F2;
+    font-weight: bold;
+    @include PC {
+    	width: 600px;
+    }
+    a{
+			color: #fff;
+			display: block;
+    }
+		img{
+			width: 15px;
+	    position: relative;
+	    top: -1px;
+		}
 	}
 }
