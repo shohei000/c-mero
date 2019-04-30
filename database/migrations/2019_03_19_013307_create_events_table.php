@@ -27,6 +27,7 @@ class CreateEventsTable extends Migration
             $table->string('cap_none_num')->default(1);
             $table->string('cap_delete_flg')->default(0);
             $table->tinyInteger('event_day')->default(1);
+            $table->string('supplement')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

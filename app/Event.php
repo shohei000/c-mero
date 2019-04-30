@@ -20,6 +20,7 @@ class Event extends Model
     'event_open',
     'event_start',
     'ticket_price',
+    'supplement',
     'cap_none_num'
   ];
 

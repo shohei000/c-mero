@@ -144,8 +144,8 @@
 	}
 
 	.eventInfo{
-		padding: 10px;
-		margin-bottom: 24px;
+		padding: 16px 10px 0 10px;
+		margin-bottom: 40px;
 		&__date{
 			font-size: 18px;
 			margin-bottom: 10px;
@@ -160,7 +160,7 @@
 		}
 		&__location{
 			font-size: 18px;
-			margin-bottom: 24px;
+			margin-bottom: 10px;
 			a{
 				color: $black;
 		    padding-right: 22px;
@@ -176,10 +176,32 @@
 				img{width: 100%;}
 			}
 		}
+		&__so{
+			.soIcon{
+				display: inline-block;
+		    margin-right: 6px;
+		    width: 20px;
+		    position: relative;
+		    top: -1px;
+				img{width: 100%;}
+			}
+			.soText{
+				display: inline-block;
+				margin-right: 14px;
+				font-size: 18px;
+			}
+		}
 		&__eventTitle{
+			margin-top: 24px;
 			position: relative;
 			font-size: 18px;
 			font-weight: bold;
+		}
+		&__supplement:not(:empty){
+			border-top: 1px dotted;
+			border-bottom: 1px dotted;
+    	margin-top: 8px;
+    	padding: 8px 0;
 		}
 	}
 

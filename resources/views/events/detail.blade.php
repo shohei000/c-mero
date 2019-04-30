@@ -34,7 +34,12 @@
 					<a href="https://www.google.com/search?q={{$event->location_name}}">{{$event->location_name}}</a>
 				@endif
 			</div>
+			<div class="eventInfo__so">
+				<span class="soIcon"><img src="/img/start-flag.svg" alt=""></span>
+				<span class="soText">OPEN / {{ $event->event_open }}</span><span class="soText">START / {{ $event->event_start }}</span>
+			</div>
 			<div class="eventInfo__eventTitle">{{$event->event_name}}</div>
+			<div class="eventInfo__supplement">{!! nl2br(e($event->supplement)) !!}</div>
 		</div>
 		<h3 class="simp-title">出演アーティスト</h3>
 		<ul class="artistList">

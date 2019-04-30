@@ -104,9 +104,16 @@
             </div>
             <div class="createSideType"><input type="text" placeholder="URL" name="location_url" class="inputTag"></div>
           </div>
-          <div class="createLine">
+          <!-- <div class="createLine">
             <div class="createSideTitle">チケット代</div>
             <div class="createSideType"><input type="text" placeholder="2000円" name="ticket_price" class="inputTag"></div>
+          </div> -->
+          <div class="createLine">
+            <div class="createSideTitle">補足事項(チケット代など)</div>
+            <div class="createSideType">
+              <textarea name="supplement" id="" rows="8" class="inputTag supplement" placeholder="前売￥2,000-（ドリンク別）
+当日￥2,500-（ドリンク別)"></textarea>
+            </div>
           </div>
           <div class="createLine">
             <div class="createSideTitle">画像</div>

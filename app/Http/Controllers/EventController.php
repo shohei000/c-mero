@@ -33,7 +33,7 @@ class EventController extends Controller
 
 	public function detail(Request $request){
 		$event = Event::where('id', $request->id)->first();
-		$artists = $event->artists()->get();
+		$artists = $event->artists()->orderby('artist_time','asc')->get();
 		setlocale(LC_ALL, 'ja_JP.UTF-8');
 		$event['open_date'] = Carbon::parse($event->open_date)->formatLocalized('%Y年%m月%d日(%a)');;
 		return view('events.detail')->with(compact(["event","artists"]));
@@ -89,7 +89,7 @@ class EventController extends Controller
 		if(\Auth::user()->id !== $event->user_id){
 			return redirect('/user/login/');
 		}
-		$artists = $event->artists()->get();
+		$artists = $event->artists()->orderby('artist_time','asc')->get();
 		return view('events.edit')->with(compact("artists", "event"));
 	}
 

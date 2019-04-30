@@ -104,10 +104,16 @@
               <input type="text" placeholder="URL" name="location_url" class="inputTag" value="{{ $event->location_url }}">
             </div>
           </div>
-          <div class="createLine">
+          <!-- <div class="createLine">
             <div class="createSideTitle">チケット代</div>
             <div class="createSideType">
               <input type="text" placeholder="2000円" name="ticket_price" class="inputTag" value="{{ $event->ticket_price }}">
+            </div>
+          </div> -->
+          <div class="createLine">
+            <div class="createSideTitle">補足事項(チケット代など)</div>
+            <div class="createSideType">
+              <div class="createSideType"><textarea name="supplement" id="" rows="8" value="{{ $event->supplement }}" class="inputTag supplement">{{ $event->supplement }}</textarea></div>
             </div>
           </div>
           <div class="createLine">
