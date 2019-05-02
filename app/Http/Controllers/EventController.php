@@ -9,6 +9,7 @@ use App\Event;
 use App\Artist;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Image;
 
 class EventController extends Controller
 {
@@ -63,7 +64,8 @@ class EventController extends Controller
 		\Auth::user()->events()->save($event);
 		if(isset($data['event_cap'])){
 			$path = '/public/event/' . $event->id;
-			$event['event_cap'] = $this->fileTypeGet($data['event_cap'], $path);
+			$resize = Image::make($request->file('event_cap'))->resize(300, 300);
+			$event['event_cap'] = $this->fileTypeGet($resize, $path);
 			\Auth::user()->events()->save($event);
 		}
 
@@ -76,7 +78,7 @@ class EventController extends Controller
   		$artist->save();
   		if(isset($artist_single['artist_cap'])){
 				$path = '/public/artists/' . $artist->id;
-				$artist['artist_cap'] = $this->fileTypeGet($artist_single['artist_cap'], $path);
+				$artist['artist_cap'] = $this->fileTypeGet($request->file('artist_cap'), $path);
 			}
 			$artist->save();
   	}
@@ -103,7 +105,7 @@ class EventController extends Controller
 		\Auth::user()->events()->save($event);
 			if(isset($data['event_cap'])){
 			$path = '/public/event/' . $event->id;
-			$event['event_cap'] = $this->fileTypeGet($data['event_cap'], $path);
+			$event['event_cap'] = $this->fileTypeGet($request->file('event_cap'), $path);
 		}
 		\Auth::user()->events()->save($event);
 
@@ -126,7 +128,7 @@ class EventController extends Controller
   		$artist->save();
   		if(isset($artist_single['artist_cap'])){
 				$path = '/public/artists/' . $artist->id;
-				$artist['artist_cap'] = $this->fileTypeGet($artist_single['artist_cap'], $path);
+				$artist['artist_cap'] = $this->fileTypeGet($request->file('artist_cap'), $path);
 			}
 			$artist->save();
   	}
