@@ -39,6 +39,27 @@
 	}
 	.artistList{
 		border-top: 1px solid #f0f0f0;
+		&.artis3{
+			> li{
+				margin-bottom: 40px;
+				padding: 0 10px 10px 10px;
+				.artistCap{
+					width: 100%;
+					height: auto;
+					margin-bottom: 10px;
+				}
+				.artistInfo{
+					margin-left: 0;
+				}
+				.artisLabels{
+					position: static;
+				}
+				.YouTubeTrigger{
+					bottom: 0;
+					top: auto;
+				}
+			}
+		}
 	}
 	.artistList > li{
 		border-bottom: 1px solid #f0f0f0;

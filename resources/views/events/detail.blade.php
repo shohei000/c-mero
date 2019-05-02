@@ -42,7 +42,7 @@
 			<div class="eventInfo__supplement">{!! nl2br(e($event->supplement)) !!}</div>
 		</div>
 		<h3 class="simp-title">出演アーティスト</h3>
-		<ul class="artistList">
+		<ul class="artistList <?php if(count($artists) <= 3) echo 'artis3'; ?>">
 			<?php $i=0; ?>
 			@foreach($artists as $artist)
 			<li>

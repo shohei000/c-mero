@@ -6,7 +6,11 @@
 
 @section('content')
   <div class="contents contents--default">
-    <h1 class="main-title">あなが作成したイベント</h1>
+    @if(!empty($events[0]))
+      <h1 class="main-title">あなが作成したイベント</h1>
+    @else
+      <h1 class="main-title">イベントを作成しよう！</h1>
+    @endif
     <div class="myEvent">
       @if(!empty($events[0]))
         <ul class="sortTab">
@@ -46,6 +50,7 @@
         {{ $events->links('vendor.pagination.bootstrap-4') }}
         <div class="btn-wrap"><a href="/event/create" class="btn btn--blue btn--createEvent">イベントを作成する</a></div>
       @else
+      <div class="rocket"><a href="/event/create"><img src="/img/event/project.svg" alt=""></a></div>
       <div class="btn-wrap"><a href="/event/create" class="btn btn--blue btn--createEvent">イベントを作成する</a></div>
       @endif
     </div>
