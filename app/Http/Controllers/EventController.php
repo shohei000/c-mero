@@ -9,7 +9,6 @@ use App\Event;
 use App\Artist;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Image;
 
 class EventController extends Controller
 {
@@ -142,9 +141,13 @@ class EventController extends Controller
 	}
 
 	private function fileTypeGet($file, $path){
+		$uniqid = uniqid();
 		$ext = $file->getClientOriginalExtension();
-    $uniqid = uniqid();
-    Storage::putFileAs($path , $file, $uniqid . '.' . $ext);
+		$fileName = $uniqid . '.' . $ext;
+
+    \Image::make($file)->resize(300, 300)->save(public_path('images/'.$fileName));
+
+    Storage::putFileAs($path , $file, $fileName);
     return $uniqid . '.' . $ext;
 	}
 
