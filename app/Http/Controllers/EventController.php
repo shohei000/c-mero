@@ -64,8 +64,7 @@ class EventController extends Controller
 		\Auth::user()->events()->save($event);
 		if(isset($data['event_cap'])){
 			$path = '/public/event/' . $event->id;
-			$resize = Image::make($request->file('event_cap'))->resize(300, 300);
-			$event['event_cap'] = $this->fileTypeGet($resize, $path);
+			$event['event_cap'] = $this->fileTypeGet($request->file('event_cap'), $path);
 			\Auth::user()->events()->save($event);
 		}
 
