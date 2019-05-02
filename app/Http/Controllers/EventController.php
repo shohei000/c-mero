@@ -144,9 +144,6 @@ class EventController extends Controller
 		$uniqid = uniqid();
 		$ext = $file->getClientOriginalExtension();
 		$fileName = $uniqid . '.' . $ext;
-
-    \Image::make($file)->resize(300, 300)->save(public_path('images/'.$fileName));
-
     Storage::putFileAs($path , $file, $fileName);
     return $uniqid . '.' . $ext;
 	}
