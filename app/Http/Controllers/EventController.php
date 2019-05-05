@@ -21,6 +21,8 @@ class EventController extends Controller
     'location_name.required' => '会場は必須です。',
     'event_open.required' => 'OPEN時間は必須です。',
     'event_start.required' => 'START時間は必須です。',
+    'event_cap.max' => 'ファイルのサイズが大きすぎます',
+    'artist_cap.max' => 'ファイルのサイズが大きすぎます',
   ];
 
   public $rules = [
@@ -29,6 +31,8 @@ class EventController extends Controller
     'location_name' => 'required|max:191',
     'event_open' => 'required',
     'event_start' => 'required',
+    'event_cap' => 'image|max:3000',
+    'artist_cap' => 'image|max:3000',
   ];
 
 	public function detail(Request $request){
@@ -63,7 +67,7 @@ class EventController extends Controller
 		\Auth::user()->events()->save($event);
 		if(isset($data['event_cap'])){
 			$path = '/public/event/' . $event->id;
-			$event['event_cap'] = $this->fileTypeGet($request->file('event_cap'), $path);
+			$event['event_cap'] = $this->fileTypeGet($data['event_cap'], $path);
 			\Auth::user()->events()->save($event);
 		}
 
@@ -76,7 +80,7 @@ class EventController extends Controller
   		$artist->save();
   		if(isset($artist_single['artist_cap'])){
 				$path = '/public/artists/' . $artist->id;
-				$artist['artist_cap'] = $this->fileTypeGet($request->file('artist_cap'), $path);
+				$artist['artist_cap'] = $this->fileTypeGet($artist_single['artist_cap'], $path);
 			}
 			$artist->save();
   	}
@@ -100,10 +104,16 @@ class EventController extends Controller
 		if($data['cap_delete_flg'] == 1){
 			$event['event_cap'] = null;
 		}
+
+		$validation = Validator::make($data, $this->rules, $this->messages);
+    if($validation->fails()) {
+      return redirect()->back()->withErrors($validation->errors())->withInput();
+    }
+
 		\Auth::user()->events()->save($event);
 			if(isset($data['event_cap'])){
 			$path = '/public/event/' . $event->id;
-			$event['event_cap'] = $this->fileTypeGet($request->file('event_cap'), $path);
+			$event['event_cap'] = $this->fileTypeGet($artist_single['artist_cap'], $path);
 		}
 		\Auth::user()->events()->save($event);
 
@@ -126,7 +136,7 @@ class EventController extends Controller
   		$artist->save();
   		if(isset($artist_single['artist_cap'])){
 				$path = '/public/artists/' . $artist->id;
-				$artist['artist_cap'] = $this->fileTypeGet($request->file('artist_cap'), $path);
+				$artist['artist_cap'] = $this->fileTypeGet($data['artist_cap'], $path);
 			}
 			$artist->save();
   	}

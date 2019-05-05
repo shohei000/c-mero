@@ -102,7 +102,15 @@
                 <span class="help-block"><strong>{{ $errors->first('location_name') }}</strong></span>
               @endif
             </div>
-            <div class="createSideType"><input type="text" placeholder="URL" name="location_url" class="inputTag"></div>
+            <div class="createSideType">
+              <input 
+                type="text" 
+                placeholder="URL" 
+                name="location_url" 
+                class="inputTag"
+                value="{{ old('location_url') }}"
+              >
+            </div>
           </div>
           <!-- <div class="createLine">
             <div class="createSideTitle">チケット代</div>
@@ -112,15 +120,18 @@
             <div class="createSideTitle">補足事項(チケット代など)</div>
             <div class="createSideType">
               <textarea name="supplement" id="" rows="8" class="inputTag supplement" placeholder="前売￥2,000-（ドリンク別）
-当日￥2,500-（ドリンク別)"></textarea>
+当日￥2,500-（ドリンク別)" value="{{ old('supplement') }}">{{ old('supplement') }}</textarea>
             </div>
           </div>
           <div class="createLine">
-            <div class="createSideTitle">画像</div>
+            <div class="createSideTitle">画像(推奨：640 360)</div>
             <div class="createSideType">
               <div class="infoCap up-img-area js-img-append">
                 <span class="plus"><b>＋</b></span>
                 <input type="file" class="inputCover" name="event_cap" accept="image/*" />
+                @if ($errors->has('event_cap'))
+                  <span class="help-block po-a"><strong>{{ $errors->first('event_cap') }}</strong></span>
+                @endif
               </div>
             </div>
           </div>
@@ -215,7 +226,6 @@
       });
     }
 
-
     $('body').on({
       mouseenter: function() {
         if($(this).find('img').attr('src')){
@@ -234,8 +244,89 @@
       $('.capDelete').remove();
     });
 
+    
 
+    // var inputs = [];
+    // var nameList = [
+    //   'artist_time',
+    //   'artist_cap',
+    //   'artist_name',
+    //   'artist_youtube',
+    //   'artist_tw'
+    // ];
+    // var StorageNum = Object.values(sessionStorage).length;
 
+    // for(var i = 0; i < 20; i++ ){
+    //   var rr = {};
+    //   nameList.forEach((item) => {
+    //     rr[item] = '';
+    //   })
+    //   inputs[i] = rr;
+    // }
+
+    // $(window).on("load", function(){
+    //   setTimeout(() => {
+    //     nameSet();
+    //   }, 500)
+    //   if(sessionStorage.length > 0){
+    //     for(var i = 0; i < StorageNum; i++ ){
+    //       var artistBoxData = JSON.parse(sessionStorage[`artistBox${i}`]);
+    //       var storageTemplate = `
+    //         <div class="artistBox">
+    //           <div class="artistTime"><input type="text" name="" data-name="artist_time" placeholder="18:00" value="${artistBoxData['artist_time']}" data-time></div>
+    //           <div class="artistCap up-img-area js-img-append">
+    //             <img src="${artistBoxData['artist_cap']}" alt="">
+    //             <span class="plus"><b>＋</b></span>
+    //             <input type="file" class="inputCover" name="" data-name="artist_cap" accept="image/*" value=""/>
+    //           </div>
+    //           <div class="artistBoxInner">
+    //             <div class="createLine">
+    //               <div class="createSideType">
+    //                 <input type="text" name="" data-name="artist_name" placeholder="アーティスト名" class="inputTag" value="${artistBoxData['artist_name']}" required>
+    //               </div>
+    //             </div>
+    //             <div class="createLine">
+    //               <div class="createSideType">
+    //                 <input type="text" name="" data-name="artist_youtube" placeholder="YouTube" class="inputTag" value="${artistBoxData['artist_youtube']}">
+    //               </div>
+    //             </div>
+    //             <div class="createLine">
+    //               <div class="createSideType">
+    //                 <input type="text" name="" data-name="artist_tw" placeholder="twitter" class="inputTag" value="${artistBoxData['artist_tw']}">
+    //               </div>
+    //             </div>
+    //           </div>
+    //           <div class="artistBoxDelete"><span>×</span></div>
+    //         </div>
+    //       `;
+    //       $('.artistList').append(storageTemplate);
+    //       $('.artistList').append($('.artistBoxAdd'));
+    //     }
+    //     $('.artistBox').eq(0).remove();
+    //   }
+    //   sessionStorageSave();
+    // });
+    // //作成したらSession削除
+    // $('.submitButton').on('click',function(){
+    //   sessionStorage.clear();
+    // });
+
+    
+    //sessionStorageに保存
+    function sessionStorageSave(){
+      $('.artistBox').each((index, el) => {
+        $(el).find('input').each(function(i, inputEl) {
+          $(inputEl).on('keyup change', function(){
+            var inputName = $(inputEl).attr('data-name');
+            var inputValue = $(inputEl).val();
+            if($(this).attr('type') !== 'file'){              
+              inputs[index][inputName] = inputValue;
+            }
+            sessionStorage.setItem(`artistBox${index}`, JSON.stringify(inputs[index]));
+          });
+        });
+      });  
+    }
     
 
     //日付と時間
@@ -256,7 +347,7 @@
           minTime : '12:00',  //受付開始時間
           maxTime : '23:00',  //終了時間,
         });
-      });  
+      });
     }
     myDatetimePicker();
     
@@ -302,8 +393,16 @@
       artistBoxNumChangeFlg(1);
 
       myDatetimePicker();
-      
+
+      // sessionStorageSave();
+
+
     });
+
+
+    
+
+    
 
 
 

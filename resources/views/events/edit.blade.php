@@ -117,7 +117,7 @@
             </div>
           </div>
           <div class="createLine">
-            <div class="createSideTitle">画像</div>
+            <div class="createSideTitle">画像(推奨：640 360)</div>
             <div class="createSideType">
               <div class="infoCap up-img-area js-img-append">
                 @if($event->event_cap)<img src="/storage/event/{{ $event->id }}/{{ $event->event_cap }}" alt="">@endif

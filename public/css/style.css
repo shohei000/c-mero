@@ -271,6 +271,17 @@ button {
 .al {
   text-align: left; }
 
+.po-a {
+  top: 0;
+  left: 0;
+  position: absolute; }
+
+.po-s {
+  position: static; }
+
+.po-r {
+  position: relative; }
+
 .contents {
   margin: 0 auto; }
   .contents--default {
