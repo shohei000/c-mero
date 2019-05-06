@@ -22,7 +22,7 @@ class EventController extends Controller
     'event_open.required' => 'OPEN時間は必須です。',
     'event_start.required' => 'START時間は必須です。',
     'event_cap.max' => 'ファイルのサイズが大きすぎます',
-    'artist_cap.max' => 'ファイルのサイズが大きすぎます',
+    'artist.*.artist_cap' => 'ファイルのサイズが大きすぎます',
   ];
 
   public $rules = [
@@ -32,7 +32,7 @@ class EventController extends Controller
     'event_open' => 'required',
     'event_start' => 'required',
     'event_cap' => 'image|max:3000',
-    'artist_cap' => 'image|max:3000',
+    'artist.*.artist_cap' => 'image|max:3000',
   ];
 
 	public function detail(Request $request){
@@ -63,6 +63,7 @@ class EventController extends Controller
     if($validation->fails()) {
       return redirect()->back()->withErrors($validation->errors())->withInput();
     }
+
 
 		\Auth::user()->events()->save($event);
 		if(isset($data['event_cap'])){

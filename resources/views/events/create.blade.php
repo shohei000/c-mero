@@ -50,7 +50,7 @@
         @endif
       </div>
       <div class="artistDeleteMode"><img src="/img/gomibako.svg" alt=""></div>
-      <div class="createEventSave"><button class="submitButton submitButton--m">作成</button></div>
+      <div class="createEventSave"><button class="submitButton submitButton--m" type="submit">作成</button></div>
     </div>
     <div class="createWrap">
       <aside class="createSide">
@@ -145,6 +145,9 @@
             <div class="artistCap up-img-area js-img-append">
               <span class="plus"><b>＋</b></span>
               <input type="file" class="inputCover" name="artist[0][artist_cap]" data-name="artist_cap" accept="image/*" />
+              @if ($errors->has('artist.*.artist_cap'))
+                <span class="help-block po-a"><strong>ファイルのサイズが大きすぎます。</strong></span>
+              @endif
             </div>
             <div class="artistBoxInner">
               <div class="createLine">
@@ -171,10 +174,10 @@
 <script src="/vendor/js/jquery.datetimepicker.full.min.js"></script>
 <script>
   $(function() {
-
     
     var deleteModeFlg = false;
     var artistBoxTotal = 1;
+    var fileMaxSize = 500000;
     var artistBoxNumChangeFlg = function(n){
       if(n == -1){
         artistBoxTotal--;
@@ -239,95 +242,15 @@
 
     $('body').on('click','.capDelete',function(e){
       e.preventDefault();
+      var delIndex = $('.capDelete').siblings('.inputCover').index('.inputCover');
+      var $appendTarget = $(this).parents('.js-img-append');
+      $appendTarget.find('.imgOver').remove();
       $(this).siblings('.inputCover').attr('value', '');
       $(this).siblings('img').remove();
       $('.capDelete').remove();
+      fileSizeFlg[delIndex] = true;
+      fileSizeToggle();
     });
-
-    
-
-    // var inputs = [];
-    // var nameList = [
-    //   'artist_time',
-    //   'artist_cap',
-    //   'artist_name',
-    //   'artist_youtube',
-    //   'artist_tw'
-    // ];
-    // var StorageNum = Object.values(sessionStorage).length;
-
-    // for(var i = 0; i < 20; i++ ){
-    //   var rr = {};
-    //   nameList.forEach((item) => {
-    //     rr[item] = '';
-    //   })
-    //   inputs[i] = rr;
-    // }
-
-    // $(window).on("load", function(){
-    //   setTimeout(() => {
-    //     nameSet();
-    //   }, 500)
-    //   if(sessionStorage.length > 0){
-    //     for(var i = 0; i < StorageNum; i++ ){
-    //       var artistBoxData = JSON.parse(sessionStorage[`artistBox${i}`]);
-    //       var storageTemplate = `
-    //         <div class="artistBox">
-    //           <div class="artistTime"><input type="text" name="" data-name="artist_time" placeholder="18:00" value="${artistBoxData['artist_time']}" data-time></div>
-    //           <div class="artistCap up-img-area js-img-append">
-    //             <img src="${artistBoxData['artist_cap']}" alt="">
-    //             <span class="plus"><b>＋</b></span>
-    //             <input type="file" class="inputCover" name="" data-name="artist_cap" accept="image/*" value=""/>
-    //           </div>
-    //           <div class="artistBoxInner">
-    //             <div class="createLine">
-    //               <div class="createSideType">
-    //                 <input type="text" name="" data-name="artist_name" placeholder="アーティスト名" class="inputTag" value="${artistBoxData['artist_name']}" required>
-    //               </div>
-    //             </div>
-    //             <div class="createLine">
-    //               <div class="createSideType">
-    //                 <input type="text" name="" data-name="artist_youtube" placeholder="YouTube" class="inputTag" value="${artistBoxData['artist_youtube']}">
-    //               </div>
-    //             </div>
-    //             <div class="createLine">
-    //               <div class="createSideType">
-    //                 <input type="text" name="" data-name="artist_tw" placeholder="twitter" class="inputTag" value="${artistBoxData['artist_tw']}">
-    //               </div>
-    //             </div>
-    //           </div>
-    //           <div class="artistBoxDelete"><span>×</span></div>
-    //         </div>
-    //       `;
-    //       $('.artistList').append(storageTemplate);
-    //       $('.artistList').append($('.artistBoxAdd'));
-    //     }
-    //     $('.artistBox').eq(0).remove();
-    //   }
-    //   sessionStorageSave();
-    // });
-    // //作成したらSession削除
-    // $('.submitButton').on('click',function(){
-    //   sessionStorage.clear();
-    // });
-
-    
-    //sessionStorageに保存
-    function sessionStorageSave(){
-      $('.artistBox').each((index, el) => {
-        $(el).find('input').each(function(i, inputEl) {
-          $(inputEl).on('keyup change', function(){
-            var inputName = $(inputEl).attr('data-name');
-            var inputValue = $(inputEl).val();
-            if($(this).attr('type') !== 'file'){              
-              inputs[index][inputName] = inputValue;
-            }
-            sessionStorage.setItem(`artistBox${index}`, JSON.stringify(inputs[index]));
-          });
-        });
-      });  
-    }
-    
 
     //日付と時間
     $.datetimepicker.setLocale('ja');
@@ -336,7 +259,6 @@
       format:'Y/m/d',
       timepicker:false
     });
-
 
     var myDatetimePicker = function(){
       $('[data-time]').each(function(index, el) {
@@ -349,18 +271,33 @@
         });
       });
     }
-    myDatetimePicker();
-    
 
-    //選択したファイルを表示する
+    var fileSizeFlg = [];
+    var fileSizeToggle = function(){
+      if(fileSizeFlg.indexOf(false) != -1){
+        $('.submitButton').attr('disabled', true);
+      }else{
+        $('.submitButton').attr('disabled', false);
+      }
+    }
+  
     $('body').on('change', '[type="file"]', function(){
       var fr = new FileReader();
       var $appendTarget = $(this).parents('.js-img-append');
+      var delIndex = $('[type="file"]').index(this);
+      if(this.files[0].size > fileMaxSize){
+        fileSizeFlg[delIndex] = false;
+        $appendTarget.append('<div class="imgOver"><span>画像のサイズが大きすぎます</span></div>')
+      }else{
+        fileSizeFlg[delIndex] = true;
+        $appendTarget.find('.imgOver').remove();
+      }
       $(this).siblings('img').remove();
       fr.onload = function() {
         let img = $('<img>').attr('src', fr.result);
         $appendTarget.append(img);
       };
+      fileSizeToggle();
       fr.readAsDataURL(this.files[0]);
     });
 
@@ -371,6 +308,9 @@
           <div class="artistCap up-img-area js-img-append">
             <span class="plus"><b>＋</b></span>
             <input type="file" class="inputCover" name="" data-name="artist_cap" accept="image/*" />
+            @if ($errors->has('artist_cap'))
+              <span class="help-block po-a"><strong>{{ $errors->first('artist_cap') }}</strong></span>
+            @endif
           </div>
           <div class="artistBoxInner">
             <div class="createLine">
@@ -391,11 +331,7 @@
       deleteModeChange(false);
       nameSet();
       artistBoxNumChangeFlg(1);
-
       myDatetimePicker();
-
-      // sessionStorageSave();
-
 
     });
 

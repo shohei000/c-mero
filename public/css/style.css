@@ -850,6 +850,7 @@ button {
 #eventCreate {
   margin: 20px 20px;
   background-color: #fff;
+  padding-bottom: 100px;
   overflow: hidden; }
   @media (max-width: 768px) {
     #eventCreate {
@@ -889,6 +890,9 @@ button {
     background-color: #3897f0; }
     #eventCreate .submitButton:hover {
       background-color: #7fbcf5; }
+    #eventCreate .submitButton:disabled {
+      cursor: default;
+      background: #e6e6e6; }
     #eventCreate .submitButton--m {
       width: 150px; }
     @media (max-width: 768px) {
@@ -1093,7 +1097,7 @@ button {
     position: absolute;
     width: 100%;
     opacity: 0;
-    z-index: 20; }
+    z-index: 30; }
     #eventCreate .inputCover img {
       position: absolute;
       top: 0;
@@ -1123,5 +1127,24 @@ button {
   #eventCreate .must {
     color: red;
     font-size: 12px; }
+  #eventCreate .imgOver {
+    position: absolute;
+    top: 0;
+    background: rgba(255, 255, 255, 0.7);
+    height: 100%;
+    width: 100%;
+    z-index: 20; }
+    #eventCreate .imgOver span {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%;
+      font-weight: bold;
+      color: red;
+      font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */

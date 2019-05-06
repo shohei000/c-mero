@@ -3,6 +3,7 @@
 
 	margin: 20px 20px;
 	background-color: #fff;
+	padding-bottom: 100px;
 	overflow: hidden;
 
 	@include SP {
@@ -46,6 +47,10 @@
 		color: #fff;
 		background-color: $btn-submit-color;
 		&:hover{background-color: lighten($btn-submit-color, 15%);}
+		&:disabled{
+			cursor: default;
+			background:$gray;
+		}
 		&--m{
 			width: 150px;
 		}
@@ -275,7 +280,7 @@
 		position: absolute;
 		width: 100%;
 		opacity: 0;
-		z-index: 20;
+		z-index: 30;
 		img{
 			position: absolute;
 			top: 0;
@@ -312,6 +317,22 @@
 	.must{
 		color: red;
 		font-size: 12px;
+	}
+
+	.imgOver{
+		position: absolute;
+    top: 0;
+    background: rgba(255,255,255,0.7);
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    span{
+    	@include cc;
+    	width: 100%;
+	    font-weight: bold;
+	    color: red;
+	    font-size: 16px;
+    }
 	}
 	
 	
