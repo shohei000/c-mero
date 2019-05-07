@@ -104,6 +104,29 @@
               <input type="text" placeholder="URL" name="location_url" class="inputTag" value="{{ $event->location_url }}">
             </div>
           </div>
+          <div class="createLine">
+            <div class="createSideTitle">お問い合わせ先</div>
+            <div class="createSideType">
+              <input
+                type="text"
+                placeholder="0312345678" 
+                name="contact_number"
+                value="{{ $event->contact_number }}"
+                class="inputTag{{ $errors->has('contact_number') ? ' has-error' : '' }}" 
+                maxlength="11"
+              >
+            </div>
+            <div class="createSideType">
+              <input
+                type="text"
+                placeholder="example.com" 
+                name="contact_mail" 
+                value="{{ $event->contact_mail }}"
+                class="inputTag{{ $errors->has('contact_mail') ? ' has-error' : '' }}" 
+                maxlength="50"
+              >
+            </div>
+          </div>
           <!-- <div class="createLine">
             <div class="createSideTitle">チケット代</div>
             <div class="createSideType">
@@ -216,6 +239,7 @@
     
     var deleteModeFlg = false;
     var artistBoxTotal = 1;
+    var fileMaxSize = 500000;
     var artistBoxNumChangeFlg = function(n){
       if(n == -1){
         artistBoxTotal--;
@@ -310,23 +334,45 @@
 
     $('body').on('click','.capDelete',function(e){
       e.preventDefault();
+      var delIndex = $('.capDelete').siblings('.inputCover').index('.inputCover');
+      var $appendTarget = $(this).parents('.js-img-append');
+      $appendTarget.find('.imgOver').remove();
       $(this).siblings('.inputCover').attr('value', '');
       $(this).siblings('img').remove();
-      $(this).parents('.up-img-area').find('[data-name="cap_delete_flg"]').val(1);
       $('.capDelete').remove();
+      fileSizeFlg[delIndex] = true;
+      fileSizeToggle();
     });
     
 
+    
+    var fileSizeFlg = [];
+    var fileSizeToggle = function(){
+      if(fileSizeFlg.indexOf(false) != -1){
+        $('.submitButton').attr('disabled', true);
+      }else{
+        $('.submitButton').attr('disabled', false);
+      }
+    }
+    
     //選択したファイルを表示する
     $('body').on('change', '[type="file"]', function(){
       var fr = new FileReader();
       var $appendTarget = $(this).parents('.js-img-append');
+      var delIndex = $('[type="file"]').index(this);
+      if(this.files[0].size > fileMaxSize){
+        fileSizeFlg[delIndex] = false;
+        $appendTarget.append('<div class="imgOver"><span>画像のサイズが大きすぎます</span></div>')
+      }else{
+        fileSizeFlg[delIndex] = true;
+        $appendTarget.find('.imgOver').remove();
+      }
       $(this).siblings('img').remove();
-      $(this).parents('.up-img-area').find('[data-name="cap_delete_flg"]').val(0);
       fr.onload = function() {
         let img = $('<img>').attr('src', fr.result);
         $appendTarget.append(img);
       };
+      fileSizeToggle();
       fr.readAsDataURL(this.files[0]);
     });
 

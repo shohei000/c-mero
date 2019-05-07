@@ -21,6 +21,8 @@ class Event extends Model
     'event_start',
     'ticket_price',
     'supplement',
+    'contact_number',
+    'contact_mail',
     'cap_none_num'
   ];
 

@@ -48,6 +48,17 @@ class ForgotPasswordController extends Controller
                     ? $this->sendResetLinkResponse($request, $response)
                     : $this->sendResetLinkFailedResponse($request, $response);
 
-        return view('auth.passwords.pass_complete')->with(compact("response"));
+        switch ($response) {
+            //成功
+            case Password::RESET_LINK_SENT:
+                return view('auth.passwords.pass_complete')->with(compact("response"));
+             //失敗
+            case Password::INVALID_USER:
+            default:
+                return $this->sendResetLinkFailedResponse($request, $response);
+        }
+        
+        
     }
+
 }

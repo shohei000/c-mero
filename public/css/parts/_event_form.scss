@@ -35,6 +35,13 @@
 			}
 		}	
 	}
+
+	.createWrap{
+		max-width: 1240px;
+		margin: 0 auto;
+	}
+
+
 	.submitButton{
 		cursor: pointer;
 		border-radius: 3px;
@@ -86,6 +93,7 @@
 	.createMain{
 		width: calc(100% - 320px);
 		float: right;
+		max-width: 920px;
 		@include SP {
 			width: auto;
 			float: none;
@@ -173,6 +181,7 @@
 	.artistBox{
 		position: relative;
 		width: 32%;
+		max-width: 300px;
 		margin-right: 2%;
 		margin-bottom: 2%;
 		border-radius: 3px;

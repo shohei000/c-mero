@@ -877,6 +877,9 @@ button {
           z-index: 100;
           display: block;
           left: 0; } }
+  #eventCreate .createWrap {
+    max-width: 1240px;
+    margin: 0 auto; }
   #eventCreate .submitButton {
     cursor: pointer;
     border-radius: 3px;
@@ -919,7 +922,8 @@ button {
       width: 25px; }
   #eventCreate .createMain {
     width: calc(100% - 320px);
-    float: right; }
+    float: right;
+    max-width: 920px; }
     @media (max-width: 768px) {
       #eventCreate .createMain {
         width: auto;
@@ -984,6 +988,7 @@ button {
   #eventCreate .artistBox {
     position: relative;
     width: 32%;
+    max-width: 300px;
     margin-right: 2%;
     margin-bottom: 2%;
     border-radius: 3px;

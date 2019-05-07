@@ -112,6 +112,29 @@
               >
             </div>
           </div>
+          <div class="createLine">
+            <div class="createSideTitle">お問い合わせ先</div>
+            <div class="createSideType">
+              <input
+                type="text"
+                placeholder="0312345678" 
+                name="contact_number"
+                value="{{ old('contact_number') }}"
+                class="inputTag{{ $errors->has('contact_number') ? ' has-error' : '' }}" 
+                maxlength="11"
+              >
+            </div>
+            <div class="createSideType">
+              <input
+                type="text"
+                placeholder="example.com" 
+                name="contact_mail" 
+                value="{{ old('contact_mail') }}"
+                class="inputTag{{ $errors->has('contact_mail') ? ' has-error' : '' }}" 
+                maxlength="50"
+              >
+            </div>
+          </div>
           <!-- <div class="createLine">
             <div class="createSideTitle">チケット代</div>
             <div class="createSideType"><input type="text" placeholder="2000円" name="ticket_price" class="inputTag"></div>
@@ -271,6 +294,7 @@
         });
       });
     }
+    myDatetimePicker();
 
     var fileSizeFlg = [];
     var fileSizeToggle = function(){
