@@ -534,11 +534,12 @@ button {
       position: relative;
       top: -1px; }
   #eventView .eventContact {
+    margin-top: 40px;
     padding: 20px 10px;
     text-align: center; }
     #eventView .eventContact .eventContactTitle {
       text-align: center;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       margin-bottom: 10px; }
     #eventView .eventContact a {
