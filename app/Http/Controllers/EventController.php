@@ -86,7 +86,7 @@ class EventController extends Controller
 			$artist->save();
   	}
 	
-		return redirect('/user/mypage');
+		return redirect('/event/' . $event->id);
 	}
 
 	public function edit(Request $request, $id){
@@ -142,7 +142,7 @@ class EventController extends Controller
 			$artist->save();
   	}
 
-		return redirect('/event/' . $id .'/edit/');
+		return redirect('/event/' . $id);
 	}
 
 	public function destroy($id){
