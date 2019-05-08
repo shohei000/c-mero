@@ -73,11 +73,13 @@
 			</li>
 			@endforeach
 		</ul>
+		@if($event->contact_number || $event->contact_mail)
 		<div class="eventContact">
 			<h3 class="eventContactTitle">お問い合わせ先</h3>
-				<a href="tel:{{$event->contact_number}}">{{ $event->contact_number }}</a>
-				<a href="mailto:{{ $event->contact_mail }}">{{ $event->contact_mail }}</a>
+				@if($event->contact_number)<a href="tel:{{$event->contact_number}}">{{ $event->contact_number }}</a>@endif
+				@if($event->contact_mail)<a href="mailto:{{ $event->contact_mail }}">{{ $event->contact_mail }}</a>@endif
 		</div>
+		@endif
 		<div class="zoomCap"><img src="" alt=""></div>
 		<div class="twitterShare">
 			<a href="//twitter.com/share?url={{ Request::url()}}" class="twitter-share-button">
