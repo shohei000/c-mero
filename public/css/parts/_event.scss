@@ -43,6 +43,9 @@
 			> li{
 				margin-bottom: 40px;
 				padding: 0 10px 10px 10px;
+				.artistElm{
+					padding: 0;
+				}
 				.artistCap{
 					width: 100%;
 					height: auto;
@@ -94,7 +97,7 @@
 	}
 	.artisLabels li {
 		color: #777777;
-		font-size: 14px;
+		font-size: 16px;
 		display: inline-block;
 		margin-right: 3px;
 		&.time{
@@ -169,7 +172,7 @@
 		margin-bottom: 40px;
 		&__date{
 			font-size: 18px;
-			margin-bottom: 10px;
+			margin-bottom: 16px;
 			.dataIcon{
 				display: inline-block;
 		    margin-right: 11px;
@@ -181,7 +184,7 @@
 		}
 		&__location{
 			font-size: 18px;
-			margin-bottom: 10px;
+			margin-bottom: 16px;
 			a{
 				color: $black;
 		    padding-right: 22px;
@@ -261,6 +264,27 @@
 			width: 15px;
 	    position: relative;
 	    top: -1px;
+		}
+	}
+
+	.eventContact{
+		padding: 20px 10px;
+		text-align: center;
+		.eventContactTitle{
+			text-align: center;
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		a{
+			display: block;
+			color: $black;
+			width: 90%;
+			margin: 0 auto 16px auto;
+			background:$gray;
+			border-radius: 3px;
+			padding: 10px 0;
+			font-size: 16px;
 		}
 	}
 }

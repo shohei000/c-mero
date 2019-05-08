@@ -64,17 +64,24 @@
 							@endif
 						</h2>
 						<ul class="artisLabels">
-							<li class="time">@if($artist->artist_time) <img src="/img/clock.png" alt=""> {{ $artist->artist_time }}〜 @endif</li>
+							@if($artist->artist_time)
+								<li class="time"><img src="/img/clock.png" alt=""> {{ $artist->artist_time }}〜</li>
+							@endif
 						</ul>
 					</div>
 				</div>
 			</li>
 			@endforeach
 		</ul>
+		<div class="eventContact">
+			<h3 class="eventContactTitle">お問い合わせ先</h3>
+				<a href="tel:{{$event->contact_number}}">{{ $event->contact_number }}</a>
+				<a href="mailto:{{ $event->contact_mail }}">{{ $event->contact_mail }}</a>
+		</div>
 		<div class="zoomCap"><img src="" alt=""></div>
 		<div class="twitterShare">
 			<a href="//twitter.com/share?url={{ Request::url()}}" class="twitter-share-button">
-				このイベントを盛り上げる！
+				このイベントをシェアする
 				<span><img src="/img/icon_twitter_white.svg" alt=""></span>
 			</a>
 		</div>
