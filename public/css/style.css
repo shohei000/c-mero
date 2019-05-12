@@ -661,6 +661,56 @@ button {
   .rocket img {
     width: 100%; }
 
+.statusArea {
+  overflow: hidden;
+  width: 72px;
+  text-align: center;
+  position: absolute;
+  top: 15px;
+  left: 139px;
+  font-size: 12px; }
+
+.statusArea select {
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none; }
+
+.statusArea select::-ms-expand {
+  display: none; }
+
+.statusArea {
+  border-radius: 2px;
+  border-radius: 50px;
+  background: #2BAC76; }
+  .statusArea.notOpen {
+    background: #969696; }
+
+.statusArea::before {
+  position: absolute;
+  top: 8px;
+  right: 0.8em;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ffffff;
+  pointer-events: none; }
+
+.statusArea select {
+  padding: 1px 11px 1px 8px;
+  color: #ffffff; }
+
 .btn-wrap {
   text-align: center; }
   .btn-wrap a {

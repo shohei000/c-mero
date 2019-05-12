@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('event/{id}/edit/', 'EventController@edit');
   Route::post('event/{id}/update/', 'EventController@update');
   Route::post('event/{id}/destroy/', 'EventController@destroy');
+  Route::post('event/{id}/status/', 'EventController@status');
 });
 
 Route::get('event/{id}', 'EventController@detail');

@@ -50,7 +50,7 @@ class UserController extends Controller
 
   public function mypage(Request $request){
     $user = \Auth::user();
-    $sort_array = ['updated_at', 'desc'];
+    $sort_array = ['open_date', 'desc'];
     if($request->get('sort_type')){
       $sort_array = $this->sortArrayGet($request->get('sort_type'));
     }

@@ -14,13 +14,22 @@
     <div class="myEvent">
       @if(!empty($events[0]))
         <ul class="sortTab">
-          <li><a href="/user/mypage?sort_type=updated_at" class="{{ $sort_type === 'updated_at' ? 'active' : ''}}">作成・変更した順</a></li>
           <li><a href="/user/mypage?sort_type=open_date" class="{{ $sort_type === 'open_date' ? 'active' : ''}}">開催日順</a></li>
+          <li><a href="/user/mypage?sort_type=updated_at" class="{{ $sort_type === 'updated_at' ? 'active' : ''}}">作成・変更した順</a></li>
         </ul>
         <ul class="eventList">
           @foreach($events as $event)
             <li class="eventListLi">
               <span class="labelDate"><b>{{ $event->open_date }}</b></span>
+              <div class="statusArea @if($event->status == 0)notOpen @endif">
+                <form action="/event/{{ $event->id }}/status" id="form_status_{{ $event->id }}" method="post">
+                  {{ csrf_field() }}
+                    <select name="status" data-id="{{ $event->id }}" onchange="statusChange(this);" class="selectInput">
+                      <option value="1" @if($event->status == 1) selected @endif>公開</option>
+                      <option value="0" @if($event->status == 0) selected @endif>非公開</option>
+                    </select>
+                </form>
+              </div>
               <form action="/event/{{ $event->id }}/destroy" id="form_{{ $event->id }}" method="post">
                 {{ csrf_field() }}
                 <a href="#" data-id="{{ $event->id }}" onclick="deletePost(this);" class="eventDelete">削除</a>
@@ -69,6 +78,9 @@ function deletePost(e) {
   if (confirm('本当に削除していいですか?')) {
     document.getElementById('form_' + e.dataset.id).submit();
   }
+}
+function statusChange(e) {
+  document.getElementById('form_status_' + e.dataset.id).submit();
 }
 </script>
 @endsection

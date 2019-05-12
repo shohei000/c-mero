@@ -37,6 +37,7 @@ class EventController extends Controller
 
 	public function detail(Request $request){
 		$event = Event::where('id', $request->id)->first();
+		if($event->status === 0) return redirect('/user/login/');
 		$artists = $event->artists()->orderby('artist_time','asc')->get();
 		setlocale(LC_ALL, 'ja_JP.UTF-8');
 		$event['open_date'] = Carbon::parse($event->open_date)->formatLocalized('%Y年%m月%d日(%a)');;
@@ -148,6 +149,13 @@ class EventController extends Controller
 	public function destroy($id){
 		$event = Event::find($id);
 		$event->delete();
+		return redirect('/user/mypage/');
+	}
+
+	public function status(Request $request, $id){
+		$event = Event::find($id);	
+		$event->status = $request->status;
+		$event->save();
 		return redirect('/user/mypage/');
 	}
 
