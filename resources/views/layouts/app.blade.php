@@ -22,6 +22,7 @@
 </div>
 
 <script src="/vendor/js/jquery-3.3.1.min.js"></script>
+<script src="/js/common.js"></script>
 @yield('scripts')
 </body>
 </html>

@@ -1,4 +1,20 @@
 @charset "utf-8";
+.leadCopy{
+	text-align: center;
+  margin-top: 50px;
+  font-size: 30px;
+}
+.freee{
+	text-align: center;
+	span{
+		font-size: 22px;
+    display: inline-block;
+    color: #f36565;
+    padding: 2px 25px;
+    margin-top: 3px;
+    font-weight: bold;
+	}
+}
 .form-wrap{
 	@include inner(50%);
   @include SP {
@@ -110,3 +126,85 @@
   }
 }
 
+
+
+#dmeoAuth{
+	width: 674px;
+  margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
+  padding-bottom: 70px;
+  background-color: #fff;
+  .dmeoAuthInner{
+  	overflow: hidden;
+  }
+	.demoIphone{
+		position: relative;
+		width: 260px;
+		float: left;
+		margin-right: 32px;
+		&:before{
+			content: "";
+	    position: absolute;
+	    width: 226px;
+	    top: 63px;
+	    left: 17px;
+	    height: 13px;
+	    background: #000;
+	    z-index: 10;
+		}
+		.demoMovie{
+			width: 226px;
+	    position: absolute;
+	    top: 64px;
+	    left: 17px;
+		}
+		img,video{width: 100%;}
+	}
+	.form-wrap{
+		width:380px;
+		float: left;
+		padding: 30px 30px 40px 30px;
+		margin-top: 28px;
+		.form-inner{
+			width: 90%;
+		}
+	}
+}
+.demoBtn{
+	text-align: center;
+  display: block;
+  margin-top: 70px;
+  text-align: center;
+  display: block;
+  margin-top: 60px;
+  font-size: 18px;
+  color: #3897f0;
+}
+
+.make{
+	padding: 50px 0 100px 0;
+	background: #efefef;
+	.makeitle{
+		text-align: center;
+		font-size: 32px;
+		font-weight: bold;
+		margin-bottom: 40px;
+	}
+	.stepImg{
+		width: 600px;
+		margin: 0 auto 50px auto;
+		img{width: 100%;}
+		.stepInfo{
+			text-align: center;
+			font-weight: bold;
+			color: #f36565;
+			font-size: 20px;
+			margin-top: 10px;
+		}
+	}
+	.btn{
+		cursor: pointer;
+		width: 40%;
+	}
+}
