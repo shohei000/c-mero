@@ -282,6 +282,10 @@ button {
 .po-r {
   position: relative; }
 
+@media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 0) {
+  input::placeholder {
+    position: relative;
+    top: -0.2em; } }
 .contents {
   margin: 0 auto; }
   .contents--default {

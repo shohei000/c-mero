@@ -67,3 +67,14 @@ button{
 .po-r{
 	position: relative;
 }
+
+
+
+@include SP {
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		input::placeholder {
+			position: relative;
+	  	top: -0.2em;
+		}
+	}	
+}
