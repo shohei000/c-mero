@@ -3,6 +3,9 @@
 	text-align: center;
   margin-top: 50px;
   font-size: 30px;
+  @include SP {
+  	font-size: 20px;
+  }
 }
 .freee{
 	text-align: center;
@@ -135,6 +138,9 @@
   text-align: center;
   padding-bottom: 70px;
   background-color: #fff;
+  @include SP {
+  	width: auto;
+  }
   .dmeoAuthInner{
   	overflow: hidden;
   }
@@ -143,6 +149,10 @@
 		width: 260px;
 		float: left;
 		margin-right: 32px;
+		@include SP {
+			margin: 0 auto;
+			float: none;
+		}
 		&:before{
 			content: "";
 	    position: absolute;
@@ -166,6 +176,11 @@
 		float: left;
 		padding: 30px 30px 40px 30px;
 		margin-top: 28px;
+		@include SP {
+			width: calc(100% - 40px);
+			float: none;
+			padding: 30px 10px 40px 10px;
+		}
 		.form-inner{
 			width: 90%;
 		}
@@ -190,10 +205,16 @@
 		font-size: 32px;
 		font-weight: bold;
 		margin-bottom: 40px;
+		@include SP {
+			font-size: 20px;
+		}
 	}
 	.stepImg{
 		width: 600px;
 		margin: 0 auto 50px auto;
+		@include SP {
+			width: 90%;
+		}
 		img{width: 100%;}
 		.stepInfo{
 			text-align: center;

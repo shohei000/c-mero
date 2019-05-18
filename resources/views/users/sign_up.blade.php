@@ -48,6 +48,7 @@
               </div>
               <div class="btn-wrap"><button type="submit" class="btn btn--blue btn--form">Eメールで新規登録する</button></div>
             </div>
+            <div class="forgetPass"><a href="/user/login/">ログインはこちら</a></div>
           </form>
         </main>
       </div>

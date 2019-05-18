@@ -796,6 +796,9 @@ button {
   text-align: center;
   margin-top: 50px;
   font-size: 30px; }
+  @media (max-width: 768px) {
+    .leadCopy {
+      font-size: 20px; } }
 
 .freee {
   text-align: center; }
@@ -919,6 +922,9 @@ button {
   text-align: center;
   padding-bottom: 70px;
   background-color: #fff; }
+  @media (max-width: 768px) {
+    #dmeoAuth {
+      width: auto; } }
   #dmeoAuth .dmeoAuthInner {
     overflow: hidden; }
   #dmeoAuth .demoIphone {
@@ -926,6 +932,10 @@ button {
     width: 260px;
     float: left;
     margin-right: 32px; }
+    @media (max-width: 768px) {
+      #dmeoAuth .demoIphone {
+        margin: 0 auto;
+        float: none; } }
     #dmeoAuth .demoIphone:before {
       content: "";
       position: absolute;
@@ -947,6 +957,11 @@ button {
     float: left;
     padding: 30px 30px 40px 30px;
     margin-top: 28px; }
+    @media (max-width: 768px) {
+      #dmeoAuth .form-wrap {
+        width: calc(100% - 40px);
+        float: none;
+        padding: 30px 10px 40px 10px; } }
     #dmeoAuth .form-wrap .form-inner {
       width: 90%; }
 
@@ -968,9 +983,15 @@ button {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 40px; }
+    @media (max-width: 768px) {
+      .make .makeitle {
+        font-size: 20px; } }
   .make .stepImg {
     width: 600px;
     margin: 0 auto 50px auto; }
+    @media (max-width: 768px) {
+      .make .stepImg {
+        width: 90%; } }
     .make .stepImg img {
       width: 100%; }
     .make .stepImg .stepInfo {
